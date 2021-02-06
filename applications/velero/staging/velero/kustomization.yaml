@@ -14,7 +14,7 @@ patchesStrategicMerge:
           version: "2.14.7"
       values:
         credentials:
-          existingSecret: velero-gcp-key
+          existingSecret: velero-key
         configuration:
           provider: velero.io/gcp
           backupStorageLocation:
