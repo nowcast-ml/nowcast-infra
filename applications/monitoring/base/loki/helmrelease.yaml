@@ -1,0 +1,73 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: loki
+spec:
+  releaseName: loki
+  chart:
+    spec:
+      chart: loki-stack
+      sourceRef:
+        kind: HelmRepository
+        name: grafana
+        namespace: flux-system
+  interval: 5m
+  timeout: 30m
+  values:
+    loki:
+      enabled: true
+      replicas: 2
+      podDisruptionBudget:
+        minAvailable: 1
+      serviceMonitor:
+        enabled: true
+      resources:
+        requests:
+          cpu: 100m
+          memory: 256Mi
+        limits:
+          cpu: 1000m
+          memory: 1024Mi
+      persistence:
+        enabled: true
+        accessModes: ["ReadWriteOnce"]
+        size: 10Gi
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: node-pool-profile
+                    operator: In
+                    values:
+                      - system
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                  - key: app
+                    operator: In
+                    values:
+                      - loki
+              topologyKey: "kubernetes.io/hostname"
+    promtail:
+      enabled: true
+      resources:
+        requests:
+          cpu: 100m
+          memory: 128Mi
+        limits:
+          cpu: 200m
+          memory: 128Mi
+      serviceMonitor:
+        enabled: true
+    fluent-bit:
+      enabled: false
+    grafana:
+      enabled: false
+    prometheus:
+      enabled: false
+    filebeat:
+      enabled: false
+    logstash:
+      enabled: false

@@ -1,0 +1,28 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: argo
+spec:
+  releaseName: argo
+  chart:
+    spec:
+      chart: argo
+      sourceRef:
+        kind: HelmRepository
+        name: argo
+        namespace: flux-system
+  interval: 5m
+  timeout: 30m
+  values:
+    workflow:
+      serviceAccount:
+        create: true
+      rbac:
+        create: true
+    controller:
+      metricsConfig:
+        enabled: true
+      telemetryConfig:
+        enabled: true
+      serviceMonitor:
+        enabled: true

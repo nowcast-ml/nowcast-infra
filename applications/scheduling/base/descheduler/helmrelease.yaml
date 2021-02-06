@@ -1,0 +1,46 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: descheduler
+spec:
+  releaseName: descheduler
+  chart:
+    spec:
+      chart: descheduler
+      sourceRef:
+        kind: HelmRepository
+        name: descheduler
+        namespace: flux-system
+  interval: 5m
+  timeout: 15m
+  values:
+    schedule: "*/10 * * * *"
+    successfulJobsHistoryLimit: 1
+    failedJobsHistoryLimit: 5
+    startingDeadlineSeconds: 300
+    deschedulerPolicy:
+      strategies:
+        RemoveDuplicates:
+          enabled: false
+        RemovePodsViolatingNodeAffinity:
+          enabled: true
+          params:
+            nodeAffinityType:
+              - requiredDuringSchedulingIgnoredDuringExecution
+        RemovePodsViolatingInterPodAntiAffinity:
+          enabled: false
+        LowNodeUtilization:
+          enabled: false
+    resources:
+      requests:
+        cpu: 100m
+        memory: 128Mi
+      limits:
+        cpu: 250m
+        memory: 256Mi
+    rbac:
+      create: true
+    podSecurityPolicy:
+      create: true
+    serviceAccount:
+      create: true

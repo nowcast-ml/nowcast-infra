@@ -1,0 +1,17 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+kind: Kustomization
+metadata:
+  name: monitoring
+  namespace: flux-system
+spec:
+  interval: 5m
+  dependsOn:
+    - name: sources
+    - name: crds
+    - name: secrets
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  path: ./applications/monitoring/staging
+  prune: true
+  validation: client
