@@ -51,9 +51,9 @@ spec:
       enabled: true
       podDisruptionBudget:
         enabled: true
-        minAvailable: 2
+        minAvailable: 1
       alertmanagerSpec:
-        replicas: 3
+        replicas: 2
         nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
             nodeSelectorTerms:
