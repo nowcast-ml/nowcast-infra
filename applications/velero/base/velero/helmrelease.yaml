@@ -41,5 +41,3 @@ spec:
                   operator: In
                   values:
                     - system
-    configuration:
-      provider: gcp

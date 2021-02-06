@@ -15,4 +15,13 @@ patchesStrategicMerge:
       values:
         credentials:
           existingSecret: velero-gcp-key
+        configuration:
+          provider: velero.io/gcp
+          backupStorageLocation:
+            name: default
+            bucket: velero-staging-backup
+          volumeSnapshotLocation:
+            name: default
+            config:
+              snapshotLocation: europe-west4
   - sealed-secret.yaml
