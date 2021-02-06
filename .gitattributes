@@ -1,0 +1,6 @@
+# Secrets
+*.enc filter=git-crypt diff=git-crypt
+secrets/** filter=git-crypt diff=git-crypt
+
+# Terraform auto defaults
+*.tfvars filter=git-crypt diff=git-crypt

@@ -1,0 +1,9 @@
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+
+[*.{yaml,yml,md,tf,tfvars}]
+indent_style = space
+indent_size = 2
