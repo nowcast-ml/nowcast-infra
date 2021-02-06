@@ -16,3 +16,8 @@ spec:
   path: ./applications/velero/staging
   prune: true
   validation: client
+  healthChecks:
+    - apiVersion: v1
+      kind: Secret
+      name: velero-key
+      namespace: velero
