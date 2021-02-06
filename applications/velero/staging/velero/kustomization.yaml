@@ -25,7 +25,7 @@ patchesStrategicMerge:
           useSecret: true
           existingSecret: velero-key
         configuration:
-          provider: velero.io/gcp
+          provider: gcp
           backupStorageLocation:
             name: default
             bucket: velero-staging-backup
