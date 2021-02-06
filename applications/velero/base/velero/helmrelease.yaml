@@ -14,13 +14,6 @@ spec:
   interval: 5m
   timeout: 30m
   values:
-    initContainers:
-      - name: velero-plugin-for-gcp
-        image: velero/velero-plugin-for-gcp:v1.1.0
-        imagePullPolicy: IfNotPresent
-        volumeMounts:
-          - mountPath: /target
-            name: plugins
     resources:
       requests:
         cpu: 100m
