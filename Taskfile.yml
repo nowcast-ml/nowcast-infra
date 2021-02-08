@@ -1,0 +1,10 @@
+---
+version: '3'
+
+includes:
+  cluster:
+    taskfile: .taskfiles/Taskfile_cluster.yml
+    dir: ./infrastructure/cluster
+  secrets:
+    taskfile: .taskfiles/Taskfile_secrets.yml
+    dir: .
