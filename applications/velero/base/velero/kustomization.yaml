@@ -3,4 +3,3 @@ kind: Kustomization
 namespace: velero
 resources:
   - helmrelease.yaml
-  - sealed-secret.yaml

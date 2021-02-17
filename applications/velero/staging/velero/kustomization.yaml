@@ -1,9 +1,9 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
+  - sealed-secret-backup-credentials.yaml
   - ../../base/velero
 patchesStrategicMerge:
-  - sealed-secret.yaml
   - |-
     apiVersion: helm.toolkit.fluxcd.io/v2beta1
     kind: HelmRelease
@@ -23,7 +23,7 @@ patchesStrategicMerge:
                 name: plugins
         credentials:
           useSecret: true
-          existingSecret: velero-key
+          existingSecret: backup-credentials
         configuration:
           provider: gcp
           backupStorageLocation:
