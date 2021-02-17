@@ -18,8 +18,8 @@ patchesStrategicMerge:
         additionalArguments:
           - --providers.file.filename=/data/traefik-config.yaml
           - --entrypoints.websecure.http.tls.certresolver=letsencrypt
-          - --entrypoints.websecure.http.tls.domains[0].main=nowca.st
-          - --entrypoints.websecure.http.tls.domains[0].sans=api.nowca.st,docs.nowca.st
+          - --entrypoints.websecure.http.tls.domains[0].main=staging.nowca.st
+          - --entrypoints.websecure.http.tls.domains[0].sans=api.staging.nowca.st,docs.staging.nowca.st
           - --certificatesresolvers.letsencrypt.acme.caserver=https://acme-v02.api.letsencrypt.org/directory
           - --certificatesresolvers.letsencrypt.acme.dnschallenge=true
           - --certificatesresolvers.letsencrypt.acme.dnschallenge.provider=cloudflare
