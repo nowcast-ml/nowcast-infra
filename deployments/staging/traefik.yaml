@@ -4,7 +4,6 @@ metadata:
   name: traefik
   namespace: flux-system
 spec:
-  suspend: true
   interval: 5m
   dependsOn:
     - name: sources
@@ -20,5 +19,5 @@ spec:
   healthChecks:
     - apiVersion: v1
       kind: Secret
-      name: cloudlfare-credentials
+      name: cloudflare-credentials
       namespace: traefik
