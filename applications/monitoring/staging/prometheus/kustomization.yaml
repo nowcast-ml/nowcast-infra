@@ -1,14 +1,14 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - ../../base/prometheus
+- ../../base/prometheus
 patchesStrategicMerge:
-  - |-
-    apiVersion: helm.toolkit.fluxcd.io/v2beta1
-    kind: HelmRelease
-    metadata:
-      name: prometheus
-    spec:
-      chart:
-        spec:
-          version: "13.13.0"
+- |-
+  apiVersion: helm.toolkit.fluxcd.io/v2beta1
+  kind: HelmRelease
+  metadata:
+    name: prometheus
+  spec:
+    chart:
+      spec:
+        version: "13.13.0"

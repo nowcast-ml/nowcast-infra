@@ -30,26 +30,26 @@ spec:
           memory: 1024Mi
       persistence:
         enabled: true
-        accessModes: ["ReadWriteOnce"]
+        accessModes: [ReadWriteOnce]
         size: 10Gi
       affinity:
         nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
             nodeSelectorTerms:
-              - matchExpressions:
-                  - key: node-pool-profile
-                    operator: In
-                    values:
-                      - system
+            - matchExpressions:
+              - key: node-pool-profile
+                operator: In
+                values:
+                - system
         podAntiAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
-            - labelSelector:
-                matchExpressions:
-                  - key: app
-                    operator: In
-                    values:
-                      - loki
-              topologyKey: "kubernetes.io/hostname"
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - loki
+            topologyKey: kubernetes.io/hostname
     promtail:
       enabled: true
       resources:

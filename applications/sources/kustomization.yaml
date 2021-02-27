@@ -2,11 +2,11 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: flux-system
 resources:
-  - ./helm-repositories/argo.yaml
-  - ./helm-repositories/bitnami.yaml
-  - ./helm-repositories/descheduler.yaml
-  - ./helm-repositories/grafana.yaml
-  - ./helm-repositories/prometheus-community.yaml
-  - ./helm-repositories/sealed-secrets.yaml
-  - ./helm-repositories/stakater.yaml
-  - ./helm-repositories/vmware-tanzu.yaml
+- ./helm-repositories/argo.yaml
+- ./helm-repositories/bitnami.yaml
+- ./helm-repositories/descheduler.yaml
+- ./helm-repositories/grafana.yaml
+- ./helm-repositories/prometheus-community.yaml
+- ./helm-repositories/sealed-secrets.yaml
+- ./helm-repositories/stakater.yaml
+- ./helm-repositories/vmware-tanzu.yaml

@@ -1,35 +1,35 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - sealed-secret-backup-credentials.yaml
-  - ../../base/velero
+- sealed-secret-backup-credentials.yaml
+- ../../base/velero
 patchesStrategicMerge:
-  - |-
-    apiVersion: helm.toolkit.fluxcd.io/v2beta1
-    kind: HelmRelease
-    metadata:
-      name: velero
-    spec:
-      chart:
-        spec:
-          version: "2.14.12"
-      values:
-        initContainers:
-          - name: velero-plugin-for-gcp
-            image: velero/velero-plugin-for-gcp:v1.1.0
-            imagePullPolicy: IfNotPresent
-            volumeMounts:
-              - mountPath: /target
-                name: plugins
-        credentials:
-          useSecret: true
-          existingSecret: backup-credentials
-        configuration:
-          provider: gcp
-          backupStorageLocation:
-            name: default
-            bucket: velero-staging-backup
-          volumeSnapshotLocation:
-            name: default
-            config:
-              snapshotLocation: europe-west4
+- |-
+  apiVersion: helm.toolkit.fluxcd.io/v2beta1
+  kind: HelmRelease
+  metadata:
+    name: velero
+  spec:
+    chart:
+      spec:
+        version: "2.14.12"
+    values:
+      initContainers:
+        - name: velero-plugin-for-gcp
+          image: velero/velero-plugin-for-gcp:v1.1.0
+          imagePullPolicy: IfNotPresent
+          volumeMounts:
+            - mountPath: /target
+              name: plugins
+      credentials:
+        useSecret: true
+        existingSecret: backup-credentials
+      configuration:
+        provider: gcp
+        backupStorageLocation:
+          name: default
+          bucket: velero-staging-backup
+        volumeSnapshotLocation:
+          name: default
+          config:
+            snapshotLocation: europe-west4

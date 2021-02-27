@@ -12,8 +12,8 @@ spec:
         name: grafana
         namespace: flux-system
   dependsOn:
-    - name: prometheus
-    - name: loki
+  - name: prometheus
+  - name: loki
   interval: 5m
   timeout: 30m
   values:
@@ -21,17 +21,17 @@ spec:
       nodeAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
           nodeSelectorTerms:
-            - matchExpressions:
-                - key: node-pool-profile
-                  operator: In
-                  values:
-                    - system
+          - matchExpressions:
+            - key: node-pool-profile
+              operator: In
+              values:
+              - system
     replicas: 1
     serviceMonitor:
       enabled: true
     persistence:
       enabled: true
-      accessModes: ["ReadWriteOnce"]
+      accessModes: [ReadWriteOnce]
       size: 10Gi
     resources:
       requests:

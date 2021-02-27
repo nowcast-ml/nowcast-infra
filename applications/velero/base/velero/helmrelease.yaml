@@ -29,8 +29,8 @@ spec:
       nodeAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
           nodeSelectorTerms:
-            - matchExpressions:
-                - key: node-pool-profile
-                  operator: In
-                  values:
-                    - system
+          - matchExpressions:
+            - key: node-pool-profile
+              operator: In
+              values:
+              - system

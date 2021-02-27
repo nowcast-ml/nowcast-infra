@@ -27,12 +27,12 @@ spec:
         nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
             nodeSelectorTerms:
-              - matchExpressions:
-                  - key: node-pool-profile
-                    operator: In
-                    values:
-                      - system
-        podAntiAffinity: "hard"
+            - matchExpressions:
+              - key: node-pool-profile
+                operator: In
+                values:
+                - system
+        podAntiAffinity: hard
         resources:
           requests:
             cpu: 100m
@@ -43,7 +43,7 @@ spec:
         storageSpec:
           volumeClaimTemplate:
             spec:
-              accessModes: ["ReadWriteOnce"]
+              accessModes: [ReadWriteOnce]
               resources:
                 requests:
                   storage: 10Gi
@@ -57,12 +57,12 @@ spec:
         nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
             nodeSelectorTerms:
-              - matchExpressions:
-                  - key: node-pool-profile
-                    operator: In
-                    values:
-                      - system
-        podAntiAffinity: "hard"
+            - matchExpressions:
+              - key: node-pool-profile
+                operator: In
+                values:
+                - system
+        podAntiAffinity: hard
         resources:
           requests:
             cpu: 10m
@@ -74,7 +74,7 @@ spec:
         storage:
           volumeClaimTemplate:
             spec:
-              accessModes: ["ReadWriteOnce"]
+              accessModes: [ReadWriteOnce]
               resources:
                 requests:
                   storage: 10Gi

@@ -14,7 +14,7 @@ spec:
   interval: 5m
   timeout: 15m
   values:
-    schedule: "*/10 * * * *"
+    schedule: '*/10 * * * *'
     successfulJobsHistoryLimit: 1
     failedJobsHistoryLimit: 5
     startingDeadlineSeconds: 300
@@ -26,7 +26,7 @@ spec:
           enabled: true
           params:
             nodeAffinityType:
-              - requiredDuringSchedulingIgnoredDuringExecution
+            - requiredDuringSchedulingIgnoredDuringExecution
         RemovePodsViolatingInterPodAntiAffinity:
           enabled: false
         LowNodeUtilization:

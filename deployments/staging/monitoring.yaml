@@ -6,9 +6,9 @@ metadata:
 spec:
   interval: 5m
   dependsOn:
-    - name: sources
-    - name: crds
-    - name: secrets
+  - name: sources
+  - name: crds
+  - name: secrets
   sourceRef:
     kind: GitRepository
     name: flux-system
