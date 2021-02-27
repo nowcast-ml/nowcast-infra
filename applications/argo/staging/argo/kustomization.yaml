@@ -11,4 +11,4 @@ patchesStrategicMerge:
     spec:
       chart:
         spec:
-          version: "0.15.3"
+          version: "0.16.6"
