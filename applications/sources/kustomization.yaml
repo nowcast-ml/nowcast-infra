@@ -9,5 +9,4 @@ resources:
   - ./helm-repositories/prometheus-community.yaml
   - ./helm-repositories/sealed-secrets.yaml
   - ./helm-repositories/stakater.yaml
-  - ./helm-repositories/traefik.yaml
   - ./helm-repositories/vmware-tanzu.yaml
