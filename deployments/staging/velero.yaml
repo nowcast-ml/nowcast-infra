@@ -4,8 +4,8 @@ metadata:
   name: velero
   namespace: flux-system
 spec:
-  suspend: true
   interval: 5m
+  suspend: true
   dependsOn:
   - name: sources
   - name: crds

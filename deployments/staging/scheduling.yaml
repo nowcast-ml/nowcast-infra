@@ -5,7 +5,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 5m
-  suspend: true
+  suspend: false
   dependsOn:
   - name: sources
   - name: crds
