@@ -21,7 +21,7 @@ metadata:
 spec:
   releaseName: istiod
   dependsOn:
-    - istio-base
+    - name: istio-base
   chart:
     spec:
       chart: ./manifests/charts/istio-control/istio-discovery
@@ -39,7 +39,7 @@ metadata:
 spec:
   releaseName: istio-ingress
   dependsOn:
-    - istio-base
+    - name: istio-base
   chart:
     spec:
       chart: ./manifests/charts/gateways/istio-ingress
