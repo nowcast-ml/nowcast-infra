@@ -11,4 +11,4 @@ patchesStrategicMerge:
   spec:
     chart:
       spec:
-        version: "13.13.0"
+        version: "13.13.1"
