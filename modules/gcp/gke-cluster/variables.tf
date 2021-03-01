@@ -186,7 +186,7 @@ variable "firewall_priority" {
 variable "firewall_inbound_ports" {
   type        = list(string)
   description = "List of TCP ports for admission/webhook controllers"
-  default     = ["8443", "9443", "15017"]
+  default     = ["443", "8443", "9443", "10250", "15017"]
 }
 
 variable "service_account" {
