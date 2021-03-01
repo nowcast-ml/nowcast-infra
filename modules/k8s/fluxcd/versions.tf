@@ -4,7 +4,7 @@ terraform {
   required_providers {
     flux = {
       source  = "fluxcd/flux"
-      version = "0.0.11"
+      version = "0.0.12"
     }
     kubectl = {
       source  = "gavinbunney/kubectl"

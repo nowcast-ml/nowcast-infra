@@ -5,5 +5,5 @@ output "service_account" {
 
 output "key" {
   sensitive = true
-  value = module.backup_account.key
+  value     = module.backup_account.key
 }

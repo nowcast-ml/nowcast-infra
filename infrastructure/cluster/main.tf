@@ -6,7 +6,14 @@ terraform {
     github = {
       source = "integrations/github"
     }
+    cloudflare = {
+      source = "cloudflare/cloudflare"
+    }
   }
+}
+
+provider "cloudflare" {
+  api_token = var.cloudflare_api_token
 }
 
 provider "github" {
@@ -22,6 +29,18 @@ provider "kubectl" {
   cluster_ca_certificate = module.kubeconfig.cluster_ca_certificate
 
   apply_retry_count = 5
+}
+
+module "global_address" {
+  source = "../../modules/multi/global-address/"
+
+  project_id         = var.project_id
+  cloudflare_zone_id = var.cloudflare_zone_id
+
+  prefix = var.global_address_prefix
+
+  record_names = var.global_address_record_names
+  record_ttl   = var.global_address_record_ttl
 }
 
 module "cluster" {
@@ -44,6 +63,12 @@ module "cluster" {
 
   node_pools        = var.node_pools
   node_pools_labels = var.node_pools_labels
+
+  enable_http_load_balancing = true
+
+  firewall_inbound_ports = var.cluster_firewall_inbound_ports
+
+  depends_on = [module.global_address]
 }
 
 module "kubeconfig" {

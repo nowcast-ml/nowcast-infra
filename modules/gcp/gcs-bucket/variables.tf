@@ -8,7 +8,7 @@ variable "name" {
 }
 
 variable "location" {
-  type    = string
+  type = string
 }
 
 variable "storage_class" {

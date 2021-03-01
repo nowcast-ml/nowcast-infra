@@ -75,5 +75,5 @@ output "location" {
 }
 
 output "service_account" {
-  value     = google_service_account.cluster_service_account[0]
+  value = google_service_account.cluster_service_account[0]
 }

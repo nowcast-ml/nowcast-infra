@@ -1,5 +1,14 @@
+
 variable "project_id" {
-  type      = string
+  type = string
+}
+
+variable "cloudflare_api_token" {
+  type = string
+}
+
+variable "cloudflare_zone_id" {
+  type = string
 }
 
 variable "name" {
@@ -35,6 +44,10 @@ variable "kubernetes_version" {
   type = string
 }
 
+variable "cluster_firewall_inbound_ports" {
+  type = list(string)
+}
+
 variable "fluxcd_repository_owner" {
   type = string
 }
@@ -49,4 +62,16 @@ variable "fluxcd_repository_path" {
 
 variable "secrets_dir" {
   type = string
+}
+
+variable "global_address_prefix" {
+  type = string
+}
+
+variable "global_address_record_names" {
+  type = list(string)
+}
+
+variable "global_address_record_ttl" {
+  type = number
 }

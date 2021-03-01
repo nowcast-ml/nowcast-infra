@@ -10,3 +10,12 @@ output "kubeconfig" {
   sensitive = true
   value     = module.kubeconfig.kubeconfig
 }
+
+output "addresses" {
+  value = module.global_address.addresses
+}
+
+output "records" {
+  sensitive = true
+  value     = module.global_address.records
+}
