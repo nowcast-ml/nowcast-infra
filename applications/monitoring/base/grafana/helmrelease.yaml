@@ -28,6 +28,8 @@ spec:
         check_for_updates: false
       log:
         mode: console
+      grafana_net:
+        url: https://grafana.net
     datasources:
       datasources.yaml:
         apiVersion: 1
@@ -48,7 +50,6 @@ spec:
       datasources:
         enabled: true
         searchNamespace: ALL
-        dashboardProviders:
     dashboardproviders.yaml:
       apiVersion: 1
       providers:
