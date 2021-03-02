@@ -1,7 +1,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-- sealed-secret-backup-credentials.yaml
+- sealed-secret-gcs-credentials.yaml
 - ../../base/velero
 patchesStrategicMerge:
 - |-
@@ -23,12 +23,12 @@ patchesStrategicMerge:
               name: plugins
       credentials:
         useSecret: true
-        existingSecret: backup-credentials
+        existingSecret: gcs-credentials
       configuration:
         provider: gcp
         backupStorageLocation:
           name: default
-          bucket: velero-staging-backup
+          bucket: st-nowca-staging
         volumeSnapshotLocation:
           name: default
           config:

@@ -1,6 +1,7 @@
+
 terraform {
   backend "gcs" {
-    bucket = "terraform-infra-backup"
+    bucket = "st-nowca-terraform-backup"
     prefix = "terraform/state/"
   }
 }

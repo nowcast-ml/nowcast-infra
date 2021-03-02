@@ -1,3 +1,4 @@
+
 terraform {
   required_providers {
     google = {
@@ -34,11 +35,11 @@ resource "google_project_iam_binding" "backup_iam_binding" {
   role    = google_project_iam_custom_role.backup_role.id
 
   members = [
-    module.backup_account.iam_email,
+    module.service_account.iam_email,
   ]
 }
 
-module "backup_account" {
+module "service_account" {
   source = "../../modules/gcp/service-account/"
 
   project_id    = var.project_id
@@ -47,7 +48,7 @@ module "backup_account" {
   generate_keys = true
 }
 
-module "backup_bucket" {
+module "bucket" {
   source = "../../modules/gcp/gcs-bucket/"
 
   project_id = var.project_id
@@ -55,6 +56,6 @@ module "backup_bucket" {
   location   = var.location
 
   iam = {
-    "roles/storage.objectAdmin" = module.backup_account.iam_email
+    "roles/storage.objectAdmin" = module.service_account.iam_email
   }
 }

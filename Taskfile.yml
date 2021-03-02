@@ -5,6 +5,9 @@ includes:
   cluster:
     taskfile: .taskfiles/Taskfile_cluster.yml
     dir: ./infrastructure/cluster
+  backup:
+    taskfile: .taskfiles/Taskfile_backup.yml
+    dir: ./infrastructure/backup
   secrets:
     taskfile: .taskfiles/Taskfile_secrets.yml
     dir: .

@@ -1,0 +1,30 @@
+---
+version: '3'
+
+env:
+  TF_WORKSPACE: staging
+  TF_CLI_ARGS_plan: -input=false
+
+tasks:
+  init:
+    desc: Init terraform providers and modules
+    cmds:
+      - terraform init -upgrade=true
+      - terraform validate
+
+  apply:
+    desc: Plan and apply backup infrasturcture
+    cmds:
+      - task: init
+      - terraform plan -var-file defaults.{{.TF_WORKSPACE}}.tfvars
+      - terraform apply -var-file defaults.{{.TF_WORKSPACE}}.tfvars
+
+  destroy:
+    desc: Destroy backup infrastructure
+    cmds:
+      - terraform destroy -var-file defaults.{{.TF_WORKSPACE}}.tfvars
+
+  refresh:
+    desc: Refresh terraform state
+    cmds:
+      - terraform refresh -var-file defaults.{{.TF_WORKSPACE}}.tfvars
