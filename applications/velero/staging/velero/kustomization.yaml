@@ -30,7 +30,7 @@ patchesStrategicMerge:
         provider: gcp
         backupStorageLocation:
           name: default
-          bucket: st-nowca-staging
+          bucket: st-nowca-staging-backup
         volumeSnapshotLocation:
           name: default
           config:
