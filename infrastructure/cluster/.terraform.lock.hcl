@@ -21,7 +21,8 @@ provider "registry.terraform.io/cloudflare/cloudflare" {
 }
 
 provider "registry.terraform.io/fluxcd/flux" {
-  version = "0.0.12"
+  version     = "0.0.12"
+  constraints = "0.0.12"
   hashes = [
     "h1:1U9MeWMR8WUM/TG+1MrTLBPd2wLaWWR6r7F+/Pxho9I=",
     "zh:0b3c41a1c0b999ee96c4bc097ff6742aeb864c2f0854a80c3df616712263ffc7",
