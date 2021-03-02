@@ -24,6 +24,7 @@ tasks:
   destroy:
     desc: Destroy cluster infrastructure
     cmds:
+      - task: refresh
       - terraform destroy -var-file defaults.{{.TF_WORKSPACE}}.tfvars
       - git pull
 
