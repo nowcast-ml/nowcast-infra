@@ -25,11 +25,17 @@ patchesStrategicMerge:
         useSecret: true
         existingSecret: gcs-credentials
       configuration:
-        provider: gcp
+        provider: velero.io/gcp
         backupStorageLocation:
-          name: default
+          name: gcs
           bucket: st-nowca-staging
         volumeSnapshotLocation:
-          name: default
+          name: gcs
           config:
             snapshotLocation: europe-west4
+      metrics:
+        enabled: true
+        serviceMonitor:
+          enabled: true
+      installCRDs: true
+      enableHelmHooks: true

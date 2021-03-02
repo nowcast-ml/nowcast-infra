@@ -5,5 +5,5 @@ output "service_account" {
 
 output "key" {
   sensitive = true
-  value     = module.service_account.key
+  value     = module.service_account.key.private_key
 }
