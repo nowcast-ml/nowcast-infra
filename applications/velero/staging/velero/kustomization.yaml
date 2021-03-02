@@ -27,10 +27,10 @@ patchesStrategicMerge:
       configuration:
         provider: velero.io/gcp
         backupStorageLocation:
-          name: gcs
+          name: default
           bucket: st-nowca-staging
         volumeSnapshotLocation:
-          name: gcs
+          name: default
           config:
             snapshotLocation: europe-west4
       metrics:
