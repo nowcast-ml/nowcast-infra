@@ -3,7 +3,7 @@ kind: HelmRelease
 metadata:
   name: istio-base
 spec:
-  releaseName: istio-base
+  releaseName: istio
   chart:
     spec:
       chart: ./manifests/charts/base
@@ -21,7 +21,7 @@ metadata:
 spec:
   releaseName: istiod
   dependsOn:
-    - name: istio-base
+    - name: istio
   chart:
     spec:
       chart: ./manifests/charts/istio-control/istio-discovery
