@@ -15,6 +15,7 @@ spec:
   timeout: 30m
   values:
     singleNamespace: true
+    installCRD: true
     workflow:
       serviceAccount:
         create: true
@@ -27,3 +28,5 @@ spec:
         enabled: true
       serviceMonitor:
         enabled: true
+    server:
+      enabled: true
