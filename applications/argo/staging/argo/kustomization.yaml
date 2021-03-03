@@ -26,3 +26,10 @@ patchesStrategicMerge:
           enabled: true
           minAvailable: 1
           maxUnavailable: 1
+      artifactRepository:
+        gcs:
+          bucket: st-nowca-staging-artifacts
+          keyFormat: "{{workflow.namespace}}/{{workflow.name}}/"
+          serviceAccountKeySecret:
+            name: gcs-credentials
+            key: cloud
