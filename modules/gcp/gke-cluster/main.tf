@@ -20,7 +20,7 @@ locals {
   node_pool_names = [for np in toset(var.node_pools) : np.name]
   node_pools      = zipmap(local.node_pool_names, tolist(toset(var.node_pools)))
 
-  default_auto_upgrade = var.zonal ? true : false
+  default_auto_upgrade = var.zonal ? false : true
 
   workload_identity_enabled = !(var.identity_namespace == null || var.identity_namespace == "null")
   cluster_workload_identity_config = !local.workload_identity_enabled ? [] : var.identity_namespace == "enabled" ? [{

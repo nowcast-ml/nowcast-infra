@@ -2,7 +2,7 @@ apiVersion: v1
 clusters:
 - cluster:
     certificate-authority-data: ${cluster_ca_certificate}
-    server: https://${endpoint}
+    server: ${endpoint}
   name: ${context}
 contexts:
 - context:

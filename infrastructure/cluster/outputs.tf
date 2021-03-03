@@ -2,7 +2,8 @@ output "name" {
   value = module.cluster.name
 }
 
-output "cluster_endpoint" {
+output "endpoint" {
+  sensitive = true
   value = module.kubeconfig.endpoint
 }
 

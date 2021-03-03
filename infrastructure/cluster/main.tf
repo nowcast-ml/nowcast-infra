@@ -24,7 +24,7 @@ provider "github" {
 provider "kubectl" {
   load_config_file = false
 
-  host                   = module.kubeconfig.host
+  host                   = module.kubeconfig.endpoint
   token                  = module.kubeconfig.token
   cluster_ca_certificate = module.kubeconfig.cluster_ca_certificate
 
@@ -67,8 +67,6 @@ module "cluster" {
   enable_http_load_balancing = true
 
   firewall_inbound_ports = var.cluster_firewall_inbound_ports
-
-  depends_on = [module.global_address]
 }
 
 module "kubeconfig" {

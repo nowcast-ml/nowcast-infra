@@ -38,6 +38,7 @@ variable "fluxcd_version" {
 
 variable "kubernetes_release_channel" {
   type = string
+  default = null
 }
 
 variable "kubernetes_version" {

@@ -200,3 +200,9 @@ variable "create_service_account" {
   type        = bool
   default     = true
 }
+
+variable "maintenance_start_time" {
+  description = ""
+  type = string
+  default = "10:00"
+}

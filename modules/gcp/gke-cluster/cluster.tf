@@ -109,6 +109,12 @@ resource "google_container_cluster" "primary" {
     ]
   }
 
+  maintenance_policy {
+    daily_maintenance_window {
+      start_time = var.maintenance_start_time
+    }
+  }
+
   timeouts {
     create = "30m"
     update = "30m"
