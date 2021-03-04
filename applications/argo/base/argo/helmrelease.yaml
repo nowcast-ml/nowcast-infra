@@ -6,6 +6,7 @@ spec:
   releaseName: argo
   chart:
     spec:
+      # renovate: registryUrl=https://argoproj.github.io/argo-helm
       chart: argo
       sourceRef:
         kind: HelmRepository

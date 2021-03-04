@@ -6,6 +6,7 @@ spec:
   releaseName: velero
   chart:
     spec:
+      # renovate: registryUrl=https://vmware-tanzu.github.io/helm-charts
       chart: velero
       sourceRef:
         kind: HelmRepository
