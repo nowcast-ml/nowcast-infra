@@ -1,0 +1,43 @@
+---
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: healthcheck
+  namespace: monitor-system
+spec:
+  schedule: "0 * * * *"
+  failedJobsHistoryLimit: 1
+  successfulJobsHistoryLimit: 3
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: Never
+          containers:
+          - name: healthcheck
+            image: curlimages/curl:7.75.0
+            imagePullPolicy: IfNotPresent
+            env:
+            - name: HEALTHCHECK_URL
+              valueFrom:
+                secretKeyRef:
+                  name: healthcheck-webhook-url
+                  key: address
+            command:
+            - "/bin/sh"
+            - "-ec"
+            - |
+              set -o nounset
+              set -o errexit
+              if [ -z "${HEALTHCHECK_URL}" ]; then
+                printf "%s - Error: missing HEALTHCHECK_URL environment variable" "$(date -u)"
+                exit 1
+              fi
+              status_code=$(curl --connect-timeout 10 --max-time 30 -I -s -o /dev/null -w '%{http_code}' "${HEALTHCHECK_URL}")
+              if [ "${status_code}" != 200 ]; then
+                printf "%s - Error: Heartbeat request failed, http code: %s" "$(date -u)" "${status_code}"
+                exit 1
+              fi
+              printf "%s - Success: Heartbeat request received" "$(date -u)"
+              exit 0
