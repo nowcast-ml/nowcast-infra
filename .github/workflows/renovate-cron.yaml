@@ -1,0 +1,36 @@
+---
+name: Cron - Renovate Helm Releases
+
+on:
+  workflow_dispatch:
+  schedule:
+  - cron: '0 18 * * *'
+
+jobs:
+  renovate-helm-releases:
+    runs-on: ubuntu-20.04
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        fetch-depth: 1
+    - name: Renovate Helm Releases
+      uses: k8s-at-home/renovate-helm-releases@v1
+      with:
+        cluster-path: "./applications"
+    - name: Create Pull Request for new Helm Releases
+      uses: peter-evans/create-pull-request@v3
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        title: "Renovate-cron: Update Helm Releases"
+        branch: renovate-helm-releases
+        delete-branch: true
+        signoff: true
+        committer: "Sebastian Klatt <sebastian@markow.io>"
+        author: "Sebastian Klatt <sebastian@markow.io>"
+        assignee: "sebastianmarkow"
+        commit-message: "renovate-cron: update helm releases"
+        body: |
+          Add renovate annotation to HelmReleases to have them automatically be tracked.
+        labels: renovate/update-helm-releases
