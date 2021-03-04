@@ -20,5 +20,5 @@ spec:
   healthChecks:
   - apiVersion: v1
     kind: Secret
-    name: gcs-credentials
+    name: velero-gcs-credentials
     namespace: velero
