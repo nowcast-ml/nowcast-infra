@@ -6,6 +6,7 @@ spec:
   releaseName: prometheus
   chart:
     spec:
+      # renovate: registryUrl=https://prometheus-community.github.io/helm-charts
       chart: kube-prometheus-stack
       sourceRef:
         kind: HelmRepository
