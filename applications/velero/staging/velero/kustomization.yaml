@@ -25,7 +25,7 @@ patchesStrategicMerge:
               name: plugins
       credentials:
         useSecret: true
-        existingSecret: gcs-credentials
+        existingSecret: velero-gcs-credentials
       configuration:
         provider: gcp
         backupStorageLocation:
