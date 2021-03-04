@@ -1,0 +1,43 @@
+---
+name: Cron - Update GOTK Components
+
+on:
+  workflow_dispatch:
+  schedule:
+  - cron: '0 18 * * *'
+
+jobs:
+  gotk-components-upgrade:
+    runs-on: ubuntu-20.04
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        fetch-depth: 1
+    - name: Setup GOTK
+      uses: fluxcd/flux2/action@main
+    - name: Upgrade GOTK
+      id: upgrade
+      run: |
+        GOTK_CLI_VERSION="$(flux -v)"
+        GOTK_SEMVER="v${GOTK_CLI_VERSION#*flux version }"
+        flux install --version="${GOTK_SEMVER}" \
+          -- network-policy=false \
+          --export > ./deployments/production/flux-system/gotk-components.yaml
+        echo "::set-output name=gotk_version::$GOTK_SEMVER"
+    - name: Create Pull Request for new Helm Releases
+      uses: peter-evans/create-pull-request@v3
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        title: "GOTK-cron: Update gotk-components to ${{ steps.upgrade.outputs.gotk_version }}"
+        branch: "gotk/upgrade-${{ steps.upgrade.outputs.gotk_version }}"
+        delete-branch: true
+        signoff: true
+        committer: "Sebastian Klatt <sebastian@markow.io>"
+        author: "Sebastian Klatt <sebastian@markow.io>"
+        assignee: "sebastianmarkow"
+        commit-message: "gotk-components-upgrade: upgrade gotk to ${{ steps.upgrade.outputs.gotk_version }}"
+        body: |
+          Release notes: https://github.com/fluxcd/flux2/releases/tag/${{ steps.upgrade.outputs.gotk_version }}
+        labels: gotk/upgrade
