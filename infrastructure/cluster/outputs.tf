@@ -4,7 +4,7 @@ output "name" {
 
 output "endpoint" {
   sensitive = true
-  value = module.kubeconfig.endpoint
+  value     = module.kubeconfig.endpoint
 }
 
 output "kubeconfig" {
