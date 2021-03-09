@@ -16,3 +16,12 @@ spec:
   path: ./applications/monitoring/staging
   prune: true
   validation: client
+  healthChecks:
+  - apiVersion: helm.toolkit.fluxcd.io/v2beta1
+    kind: HelmRelease
+    name: prometheus
+    namespace: monitor-system
+  - apiVersion: helm.toolkit.fluxcd.io/v2beta1
+    kind: HelmRelease
+    name: loki
+    namespace: monitor-system
