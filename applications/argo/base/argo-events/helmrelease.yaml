@@ -1,0 +1,19 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: argo-events
+spec:
+  releaseName: argo-events
+  chart:
+    spec:
+      # renovate: registryUrl=https://argoproj.github.io/argo-helm
+      chart: argo-events
+      sourceRef:
+        kind: HelmRepository
+        name: argo
+        namespace: flux-system
+  interval: 5m
+  timeout: 30m
+  values:
+    namespace: argo
+    singleNamespace: true
