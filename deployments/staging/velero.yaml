@@ -22,3 +22,7 @@ spec:
     kind: Secret
     name: velero-gcs-credentials
     namespace: velero
+  - apiVersion: helm.toolkit.fluxcd.io/v2beta1
+    kind: HelmRelease
+    name: velero
+    namespace: velero

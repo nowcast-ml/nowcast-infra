@@ -17,3 +17,9 @@ spec:
   path: ./applications/scheduling/staging
   prune: true
   validation: client
+  healthcheck:
+  - apiVersion: helm.toolkit.fluxcd.io/v2beta1
+    kind: HelmRelease
+    name: descheduler
+    namespace: kube-system
+
