@@ -11,4 +11,6 @@ patchesStrategicMerge:
   spec:
     chart:
       spec:
-        version: "2.3.0"
+        # renovate: registryUrl=https://grafana.github.io/helm-charts
+        chart: loki-stack
+        version: "2.5.0"

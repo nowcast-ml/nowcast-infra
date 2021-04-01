@@ -12,12 +12,12 @@ patchesStrategicMerge:
   spec:
     chart:
       spec:
-        version: "6.4.2"
+        # renovate: registryUrl=https://grafana.github.io/helm-charts
+        chart: grafana
+        version: "6.7.1"
     values:
       podAnnotations:
         configmap.reloader.stakater.com/reload: "grafana-credentials"
     valuesFrom:
     - kind: Secret
       name: grafana-credentials
-
-
