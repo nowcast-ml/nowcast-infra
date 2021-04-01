@@ -24,4 +24,4 @@ spec:
   interval: 60m
   url: https://github.com/istio/istio
   ref:
-    tag: 1.9.1
+    tag: 1.9.2
