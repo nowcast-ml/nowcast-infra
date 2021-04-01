@@ -3,14 +3,4 @@ kind: Kustomization
 resources:
 - ../../base/prometheus
 patchesStrategicMerge:
-- |-
-  apiVersion: helm.toolkit.fluxcd.io/v2beta1
-  kind: HelmRelease
-  metadata:
-    name: prometheus
-  spec:
-    chart:
-      spec:
-        # renovate: registryUrl=https://prometheus-community.github.io/helm-charts
-        chart: kube-prometheus-stack
-        version: "14.4.0"
+- helmrelease.yaml

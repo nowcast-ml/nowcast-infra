@@ -4,20 +4,4 @@ resources:
 - ../../base/grafana
 - sealed-secret-grafana-credentials.yaml
 patchesStrategicMerge:
-- |-
-  apiVersion: helm.toolkit.fluxcd.io/v2beta1
-  kind: HelmRelease
-  metadata:
-    name: grafana
-  spec:
-    chart:
-      spec:
-        # renovate: registryUrl=https://grafana.github.io/helm-charts
-        chart: grafana
-        version: "6.7.1"
-    values:
-      podAnnotations:
-        configmap.reloader.stakater.com/reload: "grafana-credentials"
-    valuesFrom:
-    - kind: Secret
-      name: grafana-credentials
+- helmrelease.yaml
