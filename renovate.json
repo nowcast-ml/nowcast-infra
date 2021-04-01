@@ -4,7 +4,7 @@
   ],
   "regexManagers": [
     {
-      "fileMatch": ["applications/.+\\.yaml$"],
+      "fileMatch": ["applications/.+helmrelease\\.yaml$"],
       "matchStrings": [
         "registryUrl=(?<registryUrl>.*?)\n *chart: (?<depName>.*?)\n *version: (?<currentValue>.*)\n"
       ],
