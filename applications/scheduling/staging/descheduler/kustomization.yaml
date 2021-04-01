@@ -3,12 +3,4 @@ kind: Kustomization
 resources:
 - ../../base/descheduler
 patchesStrategicMerge:
-- |-
-  apiVersion: helm.toolkit.fluxcd.io/v2beta1
-  kind: HelmRelease
-  metadata:
-    name: descheduler
-  spec:
-    chart:
-      spec:
-        version: "0.20.0"
+- helmrelease.yaml

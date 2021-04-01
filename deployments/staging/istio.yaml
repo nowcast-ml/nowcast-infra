@@ -14,14 +14,3 @@ spec:
   path: ./applications/istio/staging
   prune: true
   validation: client
----
-apiVersion: source.toolkit.fluxcd.io/v1beta1
-kind: GitRepository
-metadata:
-  name: istio
-  namespace: flux-system
-spec:
-  interval: 60m
-  url: https://github.com/istio/istio
-  ref:
-    tag: 1.9.2

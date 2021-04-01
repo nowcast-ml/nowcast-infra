@@ -2,6 +2,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: istio
+  namespace: istio-system
 spec:
   releaseName: istio
   chart:
@@ -18,6 +19,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: istiod
+  namespace: istio-system
 spec:
   releaseName: istiod
   dependsOn:
