@@ -45,6 +45,10 @@ variable "kubernetes_version" {
   type = string
 }
 
+variable "cluster_vertical_pod_autoscaling" {
+  type = bool
+}
+
 variable "cluster_firewall_inbound_ports" {
   type = list(string)
 }
