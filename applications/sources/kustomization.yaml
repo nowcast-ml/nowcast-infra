@@ -5,6 +5,7 @@ resources:
 - ./helm-repositories/argo.yaml
 - ./helm-repositories/bitnami.yaml
 - ./helm-repositories/descheduler.yaml
+- ./helm-repositories/markow-io.yaml
 - ./helm-repositories/grafana.yaml
 - ./helm-repositories/prometheus-community.yaml
 - ./helm-repositories/sealed-secrets.yaml
