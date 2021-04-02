@@ -9,6 +9,7 @@ spec:
       chart: cert-manager
       version: 1.2.0
   values:
+    installCRDs: true
     replicaCount: 2
     strategy:
       type: RollingUpdate
