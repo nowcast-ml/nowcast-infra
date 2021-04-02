@@ -8,3 +8,21 @@ spec:
       # renovate: registryUrl=https://charts.jetstack.io
       chart: cert-manager
       version: 1.2.0
+  values:
+    replicaCount: 2
+    strategy:
+      type: RollingUpdate
+      rollingUpdate:
+        minAvailable: 1
+        maxUnavailable: 1
+    resources:
+      requests:
+        cpu: 10m
+        memory: 32Mi
+      limits:
+        cpu: 100m
+        memory: 128Mi
+    prometheus:
+      enabled: true
+      serviceMonitor:
+        enabled: true

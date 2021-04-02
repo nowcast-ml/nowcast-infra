@@ -9,7 +9,6 @@ spec:
   dependsOn:
   - name: crds
   - name: sources
-  - name: secrets
   sourceRef:
     kind: GitRepository
     name: flux-system
