@@ -7,6 +7,7 @@ spec:
   interval: 5m
   suspend: false
   dependsOn:
+  - name: crds
   - name: secrets
   - name: cert-manager
   sourceRef:
@@ -15,3 +16,11 @@ spec:
   path: ./applications/istio/staging
   prune: true
   validation: client
+  - apiVersion: helm.toolkit.fluxcd.io/v2beta1
+    kind: HelmRelease
+    name: istio
+    namespace: istio-system
+  - apiVersion: helm.toolkit.fluxcd.io/v2beta1
+    kind: HelmRelease
+    name: istiod
+    namespace: istio-system
