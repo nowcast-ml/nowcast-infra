@@ -7,7 +7,7 @@ spec:
     spec:
       # renovate: registryUrl=https://argoproj.github.io/argo-helm
       chart: argo
-      version: "0.16.8"
+      version: 0.16.8
   values:
     controller:
       replicas: 2
