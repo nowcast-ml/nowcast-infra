@@ -4,8 +4,9 @@ resources:
 - argo.yaml
 - bitnami.yaml
 - descheduler.yaml
-- markow-io.yaml
 - grafana.yaml
+- jetstack.yaml
+- markow-io.yaml
 - prometheus-community.yaml
 - sealed-secrets.yaml
 - stakater.yaml
