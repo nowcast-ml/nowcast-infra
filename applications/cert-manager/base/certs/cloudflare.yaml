@@ -1,0 +1,15 @@
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: cloudflare
+spec:
+  acme:
+    email: sebastian@markow.io
+    server: https://acme-staging-v02.api.letsencrypt.org/directory
+    solvers:
+    - dns01:
+        cloudflare:
+          email: sebastian@markow.io
+          apiTokenSecretRef:
+              name: cert-manager-cloudflare-credentials
+              key: api-token

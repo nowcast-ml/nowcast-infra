@@ -21,3 +21,11 @@ spec:
     kind: HelmRelease
     name: cert-manager
     namespace: cert-manager
+  - apiVersion: v1
+    kind: Secret
+    name: cert-manager-cloudflare-credentials
+    namespace: cert-manager
+  - apiVersion: cert-manager.io/v1
+    kind: Issuer
+    name: cloudflare
+    namespace: cert-manager
