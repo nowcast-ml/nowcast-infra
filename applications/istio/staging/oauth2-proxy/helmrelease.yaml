@@ -1,0 +1,11 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: oauth2-proxy
+  namespace: istio-system
+spec:
+  chart:
+    spec:
+      # renovate: registryUrl=https://k8s-at-home.com/charts
+      chart: oauth2-proxy
+      version: 5.0.2

@@ -6,6 +6,7 @@ resources:
 - descheduler.yaml
 - grafana.yaml
 - jetstack.yaml
+- k8s-at-home.yaml
 - markow-io.yaml
 - prometheus-community.yaml
 - sealed-secrets.yaml
