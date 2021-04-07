@@ -51,15 +51,15 @@ resource "google_container_node_pool" "node_pools" {
 
   cluster = google_container_cluster.primary.name
 
-  initial_node_count = lookup(each.value, "autoscaling", true) ? lookup(each.value, "initial_node_count", lookup(each.value, "min_count", 1)) : null
+  initial_node_count = lookup(each.value, "autoscaling", true) ? lookup(each.value, "initial_node_count", lookup(each.value, "min_node_count", 0)) : null
   node_count         = lookup(each.value, "autoscaling", true) ? null : lookup(each.value, "node_count", 1)
   max_pods_per_node  = lookup(each.value, "max_pods_per_node", null)
 
   dynamic "autoscaling" {
     for_each = lookup(each.value, "autoscaling", true) ? [each.value] : []
     content {
-      min_node_count = lookup(autoscaling.value, "min_count", 1)
-      max_node_count = lookup(autoscaling.value, "max_count", 10)
+      min_node_count = lookup(autoscaling.value, "min_node_count", 1)
+      max_node_count = lookup(autoscaling.value, "max_node_count", 10)
     }
   }
 
