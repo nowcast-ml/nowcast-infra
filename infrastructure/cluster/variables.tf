@@ -28,6 +28,10 @@ variable "node_pools" {
   type = list(map(string))
 }
 
+variable "node_pools_taints" {
+  type = map(list(object({ key = string, value = string, effect = string })))
+}
+
 variable "node_pools_labels" {
   type = map(map(string))
 }
@@ -43,6 +47,10 @@ variable "kubernetes_release_channel" {
 
 variable "kubernetes_version" {
   type = string
+}
+
+variable "cluster_enable_http_load_balancing" {
+  type = bool
 }
 
 variable "cluster_vertical_pod_autoscaling" {

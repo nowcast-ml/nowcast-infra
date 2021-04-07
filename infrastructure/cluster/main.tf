@@ -63,8 +63,9 @@ module "cluster" {
 
   node_pools        = var.node_pools
   node_pools_labels = var.node_pools_labels
+  node_pools_taints = var.node_pools_taints
 
-  enable_http_load_balancing = true
+  enable_http_load_balancing      = var.cluster_enable_http_load_balancing
   enable_vertical_pod_autoscaling = var.cluster_vertical_pod_autoscaling
 
   firewall_inbound_ports = var.cluster_firewall_inbound_ports
