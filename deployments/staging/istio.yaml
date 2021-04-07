@@ -8,8 +8,6 @@ spec:
   suspend: false
   dependsOn:
   - name: crds
-  - name: secrets
-  - name: cert-manager
   sourceRef:
     kind: GitRepository
     name: flux-system

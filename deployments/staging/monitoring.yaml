@@ -9,6 +9,7 @@ spec:
   dependsOn:
   - name: crds
   - name: sources
+  - name: istio
   - name: secrets
   sourceRef:
     kind: GitRepository
