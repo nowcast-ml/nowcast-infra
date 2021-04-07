@@ -9,7 +9,6 @@ spec:
   dependsOn:
   - name: crds
   - name: istio
-  - name: certs
   sourceRef:
     kind: GitRepository
     name: flux-system
