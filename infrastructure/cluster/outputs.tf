@@ -12,8 +12,12 @@ output "kubeconfig" {
   value     = module.kubeconfig.kubeconfig
 }
 
-output "addresses" {
-  value = module.global_address.addresses
+output "ipv4" {
+  value = module.global_address.addresses["IPV4"].address
+}
+
+output "ipv6" {
+  value = module.global_address.addresses["IPV6"].address
 }
 
 output "records" {
