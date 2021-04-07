@@ -2,6 +2,7 @@
   "extends": [
     "config:base"
   ],
+  "assigneesFromCodeOwners": true,
   "schedule": ["after 6am before 10am every weekday"],
   "regexManagers": [
     {
