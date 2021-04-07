@@ -8,6 +8,7 @@ resources:
 - jetstack.yaml
 - k8s-at-home.yaml
 - markow-io.yaml
+- podinfo.yaml
 - prometheus-community.yaml
 - sealed-secrets.yaml
 - stakater.yaml
