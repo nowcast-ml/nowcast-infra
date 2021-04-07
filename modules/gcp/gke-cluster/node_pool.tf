@@ -80,6 +80,16 @@ resource "google_container_node_pool" "node_pools" {
 
     oauth_scopes = ["https://www.googleapis.com/auth/cloud-platform"]
 
+    guest_accelerator = [
+      for guest_accelerator in lookup(each.value, "accelerator_count", 0) > 0 ? [{
+        type  = lookup(each.value, "accelerator_type", "")
+        count = lookup(each.value, "accelerator_count", 0)
+        }] : [] : {
+        type  = guest_accelerator["type"]
+        count = guest_accelerator["count"]
+      }
+    ]
+
     labels = merge(
       lookup(lookup(local.node_pools_labels, "default_values", {}), "cluster_name", true) ? { "cluster_name" = local.cluster_name } : {},
       lookup(lookup(local.node_pools_labels, "default_values", {}), "node_pool", true) ? { "node_pool" = each.value["name"] } : {},
