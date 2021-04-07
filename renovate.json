@@ -2,6 +2,7 @@
   "extends": [
     "config:base"
   ],
+  "schedule": ["after 6am before 10am every weekday"],
   "regexManagers": [
     {
       "fileMatch": ["applications/.+helmrelease\\.yaml$"],
