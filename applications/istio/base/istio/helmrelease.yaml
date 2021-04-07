@@ -34,8 +34,9 @@ spec:
   interval: 5m
   timeout: 30m
   values:
-    neverInjectSelector:
-      # kube-prometheus-stack
-      ## Admission Webhook jobs do not terminate as expected with istio-proxy
-      - matchExpressions:
-        - {key: app, operator: In, values: [kube-prometheus-stack-admission-create,kube-prometheus-stack-admission-patch]}
+    sidecarInjectorWebhook:
+      neverInjectSelector:
+        # kube-prometheus-stack
+        ## Admission Webhook jobs do not terminate as expected with istio-proxy
+        - matchExpressions:
+          - {key: app, operator: In, values: [kube-prometheus-stack-admission-create,kube-prometheus-stack-admission-patch]}
