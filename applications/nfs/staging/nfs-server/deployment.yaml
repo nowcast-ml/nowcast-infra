@@ -1,0 +1,13 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: nfs-server
+  namespace: nfs
+spec:
+  template:
+    spec:
+      volumes:
+        - name: tf-training
+          gcePersistentDisk:
+            pdName: gce-st-nowca-staging-tf-training-disk
+            fsType: ext4
