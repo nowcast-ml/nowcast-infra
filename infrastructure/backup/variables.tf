@@ -7,6 +7,10 @@ variable "name" {
   type = string
 }
 
-variable "location" {
+variable "prefix" {
+  type = string
+}
+
+variable "zone" {
   type = string
 }

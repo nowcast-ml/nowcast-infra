@@ -15,14 +15,12 @@ tasks:
   apply:
     desc: Plan and apply infrasturcture
     cmds:
-      - task: init
       - terraform plan -var-file defaults.{{.TF_WORKSPACE}}.tfvars
       - terraform apply -var-file defaults.{{.TF_WORKSPACE}}.tfvars
 
   destroy:
     desc: Destroy infrastructure
     cmds:
-      - task: refresh
       - terraform destroy -var-file defaults.{{.TF_WORKSPACE}}.tfvars
 
   refresh:

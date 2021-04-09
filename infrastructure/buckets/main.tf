@@ -23,7 +23,7 @@ module "service_account" {
 module "buckets" {
   source = "../../modules/gcp/gcs-bucket/"
 
-  for_each = {for bucket in var.buckets: "${var.prefix}-${bucket}" => bucket}
+  for_each = { for bucket in var.buckets : "${var.prefix}-${bucket}" => bucket }
 
   project_id = var.project_id
   location   = var.zone

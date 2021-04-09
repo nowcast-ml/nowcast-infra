@@ -2,7 +2,7 @@
 module "gce_persistent_disks" {
   source = "../../modules/gcp/gce-persistent-disk"
 
-  for_each = {for disk in var.disks:  "${var.prefix}-${disk.name}" => disk}
+  for_each = { for disk in var.disks : "${var.prefix}-${disk.name}" => disk }
 
   project_id  = var.project_id
   zone        = var.zone

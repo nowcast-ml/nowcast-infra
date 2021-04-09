@@ -8,7 +8,7 @@ terraform {
 }
 
 locals {
-  bucket_name          = "${var.name}-backup"
+  bucket_name          = "${var.prefix}-${var.name}"
   service_account_name = "${local.bucket_name}-sa"
   role_name            = replace("${local.bucket_name}-role", "-", "_")
 }
@@ -53,7 +53,7 @@ module "bucket" {
 
   project_id = var.project_id
   name       = local.bucket_name
-  location   = var.location
+  location   = var.zone
 
   iam = {
     "roles/storage.objectAdmin" = module.service_account.iam_email
