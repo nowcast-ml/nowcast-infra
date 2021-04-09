@@ -1,5 +1,5 @@
 apiVersion: cert-manager.io/v1
-kind: Issuer
+kind: ClusterIssuer
 metadata:
   name: cloudflare
 spec:
@@ -13,5 +13,5 @@ spec:
         cloudflare:
           email: sebastian@markow.io
           apiTokenSecretRef:
-              name: cert-manager-cloudflare-credentials
+              name: cloudflare-cluster-issuer-credentials
               key: api-token
