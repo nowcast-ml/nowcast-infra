@@ -6,8 +6,14 @@ includes:
     taskfile: .taskfiles/Taskfile_cluster.yml
     dir: ./infrastructure/cluster
   backup:
-    taskfile: .taskfiles/Taskfile_backup.yml
+    taskfile: .taskfiles/Taskfile_tf_generic.yml
     dir: ./infrastructure/backup
+  buckets:
+    taskfile: .taskfiles/Taskfile_tf_generic.yml
+    dir: ./infrastructure/buckets
+  disks:
+    taskfile: .taskfiles/Taskfile_tf_generic.yml
+    dir: ./infrastructure/disks
   secrets:
     taskfile: .taskfiles/Taskfile_secrets.yml
     dir: .
