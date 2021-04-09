@@ -8,8 +8,8 @@ spec:
   suspend: false
   dependsOn:
   - name: crds
-  - name: sources
   - name: istio
+  - name: sources
   - name: secrets
   sourceRef:
     kind: GitRepository
