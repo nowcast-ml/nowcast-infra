@@ -1,9 +1,9 @@
 ---
 version: '3'
 
-env:
-  TF_WORKSPACE: staging
-  TF_CLI_ARGS_plan: -input=false
+# env:
+#   TF_WORKSPACE: staging
+#   TF_CLI_ARGS_plan: -input=false
 
 tasks:
   init:

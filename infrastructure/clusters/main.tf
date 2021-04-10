@@ -1,3 +1,4 @@
+
 terraform {
   required_providers {
     kubectl = {
@@ -6,15 +7,9 @@ terraform {
     github = {
       source = "integrations/github"
     }
-    cloudflare = {
-      source = "cloudflare/cloudflare"
-    }
   }
 }
 
-provider "cloudflare" {
-  api_token = var.cloudflare_api_token
-}
 
 provider "github" {
   owner = var.fluxcd_repository_owner
@@ -29,18 +24,6 @@ provider "kubectl" {
   cluster_ca_certificate = module.kubeconfig.cluster_ca_certificate
 
   apply_retry_count = 5
-}
-
-module "global_address" {
-  source = "../../modules/multi/global-address/"
-
-  project_id         = var.project_id
-  cloudflare_zone_id = var.cloudflare_zone_id
-
-  prefix = var.global_address_prefix
-
-  record_names = var.global_address_record_names
-  record_ttl   = var.global_address_record_ttl
 }
 
 module "cluster" {

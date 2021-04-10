@@ -7,10 +7,6 @@ variable "cloudflare_api_token" {
   type = string
 }
 
-variable "cloudflare_zone_id" {
-  type = string
-}
-
 variable "name" {
   type = string
 }
@@ -75,16 +71,4 @@ variable "fluxcd_repository_path" {
 
 variable "secrets_dir" {
   type = string
-}
-
-variable "global_address_prefix" {
-  type = string
-}
-
-variable "global_address_record_names" {
-  type = list(string)
-}
-
-variable "global_address_record_ttl" {
-  type = number
 }

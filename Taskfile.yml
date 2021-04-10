@@ -2,18 +2,49 @@
 version: '3'
 
 includes:
-  cluster:
+  clusters:
     taskfile: .taskfiles/Taskfile_cluster.yml
-    dir: ./infrastructure/cluster
-  backup:
+    dir: ./infrastructure/clusters
+  backups:
     taskfile: .taskfiles/Taskfile_tf_generic.yml
-    dir: ./infrastructure/backup
+    dir: ./infrastructure/backups
   buckets:
     taskfile: .taskfiles/Taskfile_tf_generic.yml
     dir: ./infrastructure/buckets
   disks:
     taskfile: .taskfiles/Taskfile_tf_generic.yml
     dir: ./infrastructure/disks
+  registry:
+    taskfile: .taskfiles/Taskfile_tf_generic.yml
+    dir: ./infrastructure/registry
+  endpoints:
+    taskfile: .taskfiles/Taskfile_tf_generic.yml
+    dir: ./infrastructure/endpoints
+  artifacts:
+    taskfile: .taskfiles/Taskfile_tf_generic.yml
+    dir: ./infrastructure/artifacts
   secrets:
     taskfile: .taskfiles/Taskfile_secrets.yml
     dir: .
+
+env:
+  TF_WORKSPACE: staging
+  TF_CLI_ARGS_plan: -input=false
+
+tasks:
+  setup:
+    desc: "Bring up infra"
+    cmds:
+    - task: disks:apply
+    - task: backups:apply
+    - task: artifacts:apply
+    - task: buckets:apply
+    - task: clusters:apply
+  teardown:
+    desc: "Tear down infra"
+    cmds:
+    - task: clusters:destroy
+    - task: buckets:destroy
+    - task: artifacts:destroy
+    - task: backups:destroy
+    - task: disks:destroy

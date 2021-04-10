@@ -1,6 +1,6 @@
 
-output "addresses" {
-  value = google_compute_global_address.ips
+output "ipv4" {
+  value = google_compute_address.ip.address
 }
 
 output "records" {

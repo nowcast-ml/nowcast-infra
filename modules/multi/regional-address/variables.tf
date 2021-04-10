@@ -12,18 +12,21 @@ variable "prefix" {
   type = string
 }
 
+variable "name" {
+  type = string
+}
+
 variable "description" {
   type    = string
   default = null
 }
 
-variable "record_names" {
-  type = list(string)
+variable "region" {
+  type = string
 }
 
-variable "ip_versions" {
-  type    = list(string)
-  default = ["IPV4", "IPV6"]
+variable "records" {
+  type = list(string)
 }
 
 variable "record_ttl" {

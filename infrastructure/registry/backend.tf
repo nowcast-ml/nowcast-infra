@@ -2,6 +2,6 @@
 terraform {
   backend "gcs" {
     bucket = "st-nowca-terraform-infra"
-    prefix = "terraform/state/buckets/"
+    prefix = "terraform/state/registry/"
   }
 }
