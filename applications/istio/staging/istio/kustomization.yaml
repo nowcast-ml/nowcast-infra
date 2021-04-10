@@ -4,3 +4,4 @@ resources:
 - ../../base/istio
 patchesStrategicMerge:
 - gitrelease.yaml
+- helmrelease.yaml

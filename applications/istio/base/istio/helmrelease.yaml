@@ -40,3 +40,23 @@ spec:
         ## Admission Webhook jobs do not terminate as expected with istio-proxy
         - matchExpressions:
           - {key: app, operator: In, values: [kube-prometheus-stack-admission-create,kube-prometheus-stack-admission-patch]}
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: istio-ingress
+  namespace: istio-system
+spec:
+  releaseName: istio-ingress
+  dependsOn:
+    - name: istio
+    - name: istiod
+  chart:
+    spec:
+      chart: ./manifests/charts/gateways/istio-ingress
+      sourceRef:
+        kind: GitRepository
+        name: istio
+        namespace: flux-system
+  interval: 5m
+  timeout: 30m
