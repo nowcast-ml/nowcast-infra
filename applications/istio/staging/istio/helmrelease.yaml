@@ -3,3 +3,8 @@ kind: HelmRelease
 metadata:
   name: istio-ingress
   namespace: istio-system
+spec:
+  values:
+    gateways:
+      istio-ingressgateway:
+        loadBalancerIP: "34.91.159.136"
