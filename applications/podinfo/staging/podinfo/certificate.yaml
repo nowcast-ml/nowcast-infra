@@ -1,0 +1,14 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: st-nowca-staging-wildcard
+  namespace: podinfo
+spec:
+  secretName: st-nowca-staging-wildcard-tls
+  issuerRef:
+    name: letsencrypt
+    kind: ClusterIssuer
+  commonName: "*.staging.nowca.st"
+  dnsNames:
+    - 'staging.nowca.st'
+    - '*.staging.nowca.st'

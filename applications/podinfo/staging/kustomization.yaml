@@ -3,4 +3,4 @@ kind: Kustomization
 namespace: podinfo
 resources:
 - ../base/namespace
-- ../base/podinfo
+- podinfo
