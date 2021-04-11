@@ -3,4 +3,4 @@ kind: Namespace
 metadata:
   name: podinfo
   labels:
-    istio-injection: enabled
+    istio-injection: disable
