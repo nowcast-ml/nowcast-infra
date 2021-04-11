@@ -12,13 +12,13 @@ spec:
       name: http-podinfo
       protocol: HTTP
     hosts:
-    - '*.staging.nowca.st'
+    - 'podinfo.staging.nowca.st'
   - port:
       number: 443
       name: https-podinfo
       protocol: HTTPS
     hosts:
-    - '*.staging.nowca.st'
+    - 'podinfo.staging.nowca.st'
     tls:
       credentialName: st-nowca-staging-wildcard-tls
       mode: SIMPLE

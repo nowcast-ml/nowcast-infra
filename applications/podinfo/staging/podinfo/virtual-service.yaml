@@ -5,7 +5,7 @@ metadata:
   namespace: podinfo
 spec:
   hosts:
-  - podinfo.staging.nowca.st
+  - 'podinfo.staging.nowca.st'
   gateways:
   - podinfo-gateway
   http:

@@ -8,6 +8,6 @@ spec:
   issuerRef:
     name: letsencrypt
     kind: ClusterIssuer
-  commonName: '*.staging.nowca.st'
+  commonName: 'podinfo.staging.nowca.st'
   dnsNames:
-    - '*.staging.nowca.st'
+    - 'podinfo.staging.nowca.st'
