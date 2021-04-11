@@ -11,7 +11,7 @@ spec:
       name: http-podinfo
       protocol: HTTP
     hosts:
-    - podinfo.staging.nowca.st
+    - "*.staging.nowca.st"
     tls:
       httpsRedirect: true
   - port:
@@ -19,7 +19,7 @@ spec:
       name: https-podinfo
       protocol: HTTPS
     hosts:
-    - podinfo.staging.nowca.st
+    - "*.staging.nowca.st"
     tls:
-      credentialName: st-nowca-staging-tls
+      credentialName: st-nowca-staging-wildcard-tls
       mode: SIMPLE
