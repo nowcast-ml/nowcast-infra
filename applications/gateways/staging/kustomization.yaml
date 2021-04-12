@@ -3,4 +3,3 @@ kind: Kustomization
 resources:
 - certs
 - gateways
-- oauth2-proxy

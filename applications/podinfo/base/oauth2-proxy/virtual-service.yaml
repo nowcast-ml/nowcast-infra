@@ -2,7 +2,7 @@ apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
   name: oauth2-proxy
-  namespace: istio-system
+  namespace: podinfo
 spec:
   hosts:
   - 'oauth2.staging.nowca.st'
@@ -11,6 +11,6 @@ spec:
   http:
   - route:
     - destination:
-        host: oauth2-proxy.istio-system.svc.cluster.local
+        host: oauth2-proxy.podinfo.svc.cluster.local
         port:
           number: 80

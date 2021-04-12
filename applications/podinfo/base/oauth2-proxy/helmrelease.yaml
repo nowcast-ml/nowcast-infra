@@ -2,13 +2,13 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: oauth2-proxy
-  namespace: istio-system
+  namespace: podinfo
 spec:
   releaseName: oauth2-proxy
   dependsOn:
-    - name: istio
-    - name: istiod
-    - name: istio-ingress
+    - name: istio-system/istio
+    - name: istio-system/istiod
+    - name: istio-system/istio-ingress
   chart:
     spec:
       # renovate: registryUrl=https://k8s-at-home.com/charts
