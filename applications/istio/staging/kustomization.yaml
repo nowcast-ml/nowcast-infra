@@ -3,4 +3,3 @@ kind: Kustomization
 resources:
 - ../base/namespace/
 - istio
-- oauth2-proxy

@@ -5,6 +5,10 @@ metadata:
   namespace: istio-system
 spec:
   releaseName: oauth2-proxy
+  dependsOn:
+    - name: istio
+    - name: istiod
+    - name: istio-ingress
   chart:
     spec:
       # renovate: registryUrl=https://k8s-at-home.com/charts
