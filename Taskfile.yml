@@ -32,7 +32,7 @@ env:
   TF_CLI_ARGS_plan: -input=false
 
 tasks:
-  setup:
+  buildup:
     desc: "Bring up infra"
     cmds:
     - task: disks:apply
