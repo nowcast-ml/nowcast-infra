@@ -1,26 +1,26 @@
 apiVersion: networking.istio.io/v1beta1
 kind: Gateway
 metadata:
-  name: podinfo-gateway
-  namespace: podinfo
+  name: st-nowca-wildcard
+  namespace: istio-system
 spec:
-  selector:
-    istio: ingressgateway
   servers:
   - port:
       number: 80
-      name: http-podinfo
+      name: http-st-nowca-wildcard
       protocol: HTTP
     hosts:
     - '*.staging.nowca.st'
+    - 'staging.nowca.st'
     tls:
       httpsRedirect: true
   - port:
       number: 443
-      name: https-podinfo
+      name: https-st-nowca-wildcard
       protocol: HTTPS
     hosts:
     - '*.staging.nowca.st'
+    - 'staging.nowca.st'
     tls:
-      credentialName: st-nowca-staging-wildcard-tls
+      credentialName: st-nowca-wildcard-tls
       mode: SIMPLE

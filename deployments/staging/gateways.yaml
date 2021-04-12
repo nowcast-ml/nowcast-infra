@@ -1,0 +1,27 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+kind: Kustomization
+metadata:
+  name: gateways
+  namespace: flux-system
+spec:
+  interval: 5m
+  suspend: false
+  dependsOn:
+  - name: istio
+  - name: cert-manager
+  - name: ca
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  path: ./applications/gateways/staging
+  prune: true
+  validation: client
+  healthChecks:
+  - apiVersion: cert-manager.io/v1
+    kind: Certificate
+    name: st-nowca-wildcard
+    namespace: istio-system
+  - apiVersion: networking.istio.io/v1beta1
+    kind: Gateway
+    name: st-nowca-wildcard
+    namespace: istio-system

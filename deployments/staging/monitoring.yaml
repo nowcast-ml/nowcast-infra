@@ -8,7 +8,6 @@ spec:
   suspend: false
   dependsOn:
   - name: crds
-  - name: istio
   - name: sources
   - name: secrets
   sourceRef:

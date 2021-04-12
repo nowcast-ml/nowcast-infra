@@ -1,0 +1,10 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: st-nowca-wildcard
+  namespace: istio-system
+spec:
+  secretName: st-nowca-wildcard-tls
+  issuerRef:
+    name: letsencrypt
+    kind: ClusterIssuer

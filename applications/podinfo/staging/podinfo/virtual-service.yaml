@@ -1,13 +1,13 @@
 apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
-  name: podinfo-virtual-service
+  name: podinfo
   namespace: podinfo
 spec:
   hosts:
   - 'podinfo.staging.nowca.st'
   gateways:
-  - podinfo-gateway
+  - st-nowca-wildcard
   http:
   - route:
     - destination:
