@@ -1,0 +1,16 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: oauth2-proxy
+  namespace: istio-system
+spec:
+  hosts:
+  - 'oauth2.staging.nowca.st'
+  gateways:
+  - 'istio-system/st-nowca-wildcard'
+  http:
+  - route:
+    - destination:
+        host: oauth2-proxy.istio-system.svc.cluster.local
+        port:
+          number: 80
