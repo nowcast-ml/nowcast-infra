@@ -9,3 +9,6 @@ spec:
       # renovate: registryUrl=https://k8s-at-home.com/charts
       chart: oauth2-proxy
       version: 5.0.3
+  valuesFrom:
+    kind: Secret
+    name: oauth2-proxy-values
