@@ -10,5 +10,5 @@ spec:
       chart: oauth2-proxy
       version: 5.0.3
   valuesFrom:
-    kind: Secret
+  - kind: Secret
     name: oauth2-proxy-values
