@@ -1,0 +1,46 @@
+---
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: oauth2-proxy
+  namespace: podinfo
+spec:
+  hosts:
+    - 'sso.staging.nowca.st'
+  gateways:
+    - 'istio-system/st-nowca-wildcard'
+  http:
+    - route:
+        - destination:
+            host: oauth2-proxy.podinfo.svc.cluster.local
+            port:
+              number: 4180
+---
+apiVersion: security.istio.io/v1beta1
+kind: RequestAuthentication
+metadata:
+  name: podinfo
+  namespace: istio-system
+spec:
+  selector:
+    matchLabels:
+      app: istio-ingressgateway
+  # TODO: Change to GitHub details.
+  jwtRules:
+  - issuer: https://accounts.google.com
+    jwksUri: https://www.googleapis.com/oauth2/v3/certs
+---
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: podinfo
+  namespace: istio-system
+spec:
+  action: ALLOW
+  selector:
+    matchLabels:
+      app: istio-ingressgateway
+  rules:
+  - from:
+    - source:
+        requestPrincipals: ["*"]
