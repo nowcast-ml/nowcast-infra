@@ -20,7 +20,7 @@ spec:
                 name: envoy.filters.http.jwt_authn
             sni: 'podinfo.staging.nowca.st'
       patch:
-        operation: INSERT_AFTER
+        operation: INSERT_BEFORE
         value:
           name: envoy.filters.http.ext_authz
           typed_config:
