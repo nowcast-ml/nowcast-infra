@@ -9,8 +9,8 @@ spec:
   suspend: true
   dependsOn:
     - name: crds
-    - name: sources
     - name: istio
+    - name: sources
     - name: gateways
   sourceRef:
     kind: GitRepository

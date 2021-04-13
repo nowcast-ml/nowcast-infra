@@ -42,30 +42,27 @@ resource "tls_private_key" "deploy_key" {
   rsa_bits  = 4096
 }
 
-resource "kubernetes_namespace" "flux_namespace" {
-  metadata {
-    name = var.namespace
-  }
-
-  lifecycle {
-    ignore_changes = [
-      metadata[0].labels,
-    ]
-  }
+resource "kubectl_manifest" "flux_namespace" {
+  yaml_body = <<YAML
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ${var.namespace}
+YAML
 }
 
 resource "kubectl_manifest" "fluxcd_install" {
   for_each  = { for v in local.install : lower(join("/", compact([v.data.apiVersion, v.data.kind, lookup(v.data.metadata, "namespace", ""), v.data.metadata.name]))) => v.content }
   yaml_body = each.value
 
-  depends_on = [kubernetes_namespace.flux_namespace]
+  depends_on = [kubectl_manifest.flux_namespace]
 }
 
 resource "kubectl_manifest" "fluxcd_sync" {
   for_each  = { for v in local.sync : lower(join("/", compact([v.data.apiVersion, v.data.kind, lookup(v.data.metadata, "namespace", ""), v.data.metadata.name]))) => v.content }
   yaml_body = each.value
 
-  depends_on = [kubernetes_namespace.flux_namespace, kubectl_manifest.fluxcd_install]
+  depends_on = [kubectl_manifest.flux_namespace, kubectl_manifest.fluxcd_install]
 }
 
 resource "kubernetes_secret" "main" {

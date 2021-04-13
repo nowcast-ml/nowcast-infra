@@ -8,6 +8,7 @@ spec:
   interval: 5m
   suspend: false
   dependsOn:
+    - name: crds
     - name: istio
     - name: cert-manager
     - name: ca

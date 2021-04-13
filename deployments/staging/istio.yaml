@@ -9,7 +9,6 @@ spec:
   suspend: false
   dependsOn:
     - name: crds
-    - name: secrets
   sourceRef:
     kind: GitRepository
     name: flux-system
