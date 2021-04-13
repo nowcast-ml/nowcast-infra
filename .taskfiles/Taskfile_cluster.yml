@@ -1,10 +1,6 @@
 ---
 version: '3'
 
-# env:
-#   TF_WORKSPACE: staging
-#   TF_CLI_ARGS_plan: -input=false
-
 tasks:
   init:
     desc: Init terraform providers and modules
@@ -44,4 +40,3 @@ tasks:
     desc: Use kubeconfig
     cmds:
       - terraform output -raw kubeconfig > ~/.kube/config
-

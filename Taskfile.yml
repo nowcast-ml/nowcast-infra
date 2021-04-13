@@ -1,6 +1,10 @@
 ---
 version: '3'
 
+env:
+  TF_WORKSPACE: staging
+  TF_CLI_ARGS_plan: -input=false
+
 includes:
   clusters:
     taskfile: .taskfiles/Taskfile_cluster.yml
@@ -27,18 +31,14 @@ includes:
     taskfile: .taskfiles/Taskfile_secrets.yml
     dir: .
 
-env:
-  TF_WORKSPACE: staging
-  TF_CLI_ARGS_plan: -input=false
-
 tasks:
   buildup:
     desc: "Bring up infra"
     cmds:
-    - task: disks:apply
-    - task: clusters:apply
+      - task: disks:apply
+      - task: clusters:apply
   teardown:
     desc: "Tear down infra"
     cmds:
-    - task: clusters:destroy
-    - task: disks:destroy
+      - task: clusters:destroy
+      - task: disks:destroy
