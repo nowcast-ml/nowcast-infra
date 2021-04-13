@@ -24,13 +24,14 @@ tasks:
   destroy:
     desc: Destroy cluster infrastructure
     cmds:
-      - task: refresh
+      - task: reload-kubeconfig
       - terraform destroy -var-file defaults.{{.TF_WORKSPACE}}.tfvars
       - git pull
 
   refresh:
     desc: Refresh terraform state
     cmds:
+      - task: reload-kubeconfig
       - terraform refresh -var-file defaults.{{.TF_WORKSPACE}}.tfvars
       - task: use-kubeconfig
 
@@ -38,7 +39,6 @@ tasks:
     desc: Reload kubeconfig
     cmds:
       - terraform refresh -var-file defaults.{{.TF_WORKSPACE}}.tfvars -target 'module.kubeconfig'
-      - task: use-kubeconfig
 
   use-kubeconfig:
     desc: Use kubeconfig
