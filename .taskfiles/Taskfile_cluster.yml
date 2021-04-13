@@ -18,7 +18,7 @@ tasks:
       - task: init
       - terraform plan -var-file defaults.{{.TF_WORKSPACE}}.tfvars
       - terraform apply -var-file defaults.{{.TF_WORKSPACE}}.tfvars
-      - terraform output -raw kubeconfig > ~/.kube/config
+      - task: use-kubeconfig
       - git pull
 
   destroy:
@@ -26,11 +26,22 @@ tasks:
     cmds:
       - task: refresh
       - terraform destroy -var-file defaults.{{.TF_WORKSPACE}}.tfvars
-      - rm -rf ~/kube/config
       - git pull
 
   refresh:
     desc: Refresh terraform state
     cmds:
       - terraform refresh -var-file defaults.{{.TF_WORKSPACE}}.tfvars
+      - task: use-kubeconfig
+
+  reload-kubeconfig:
+    desc: Reload kubeconfig
+    cmds:
+      - terraform refresh -var-file defaults.{{.TF_WORKSPACE}}.tfvars -target 'module.kubeconfig'
+      - task: use-kubeconfig
+
+  use-kubeconfig:
+    desc: Use kubeconfig
+    cmds:
       - terraform output -raw kubeconfig > ~/.kube/config
+
