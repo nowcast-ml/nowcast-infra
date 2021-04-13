@@ -6,7 +6,7 @@ metadata:
 spec:
   workloadSelector:
     labels:
-      istio: ingressgateway
+      app: istio-ingressgateway
   configPatches:
   - applyTo: HTTP_FILTER
     match:
@@ -19,7 +19,7 @@ spec:
               name: istio.metadata_exchange
           sni: 'podinfo.staging.nowca.st'
     patch:
-      operation: INSERT_BEFORE
+      operation: INSERT_AFTER
       value:
         name: envoy.filters.http.ext_authz
         typed_config:
