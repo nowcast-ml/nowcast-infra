@@ -13,5 +13,5 @@ spec:
         cloudflare:
           email: sebastian@markow.io
           apiTokenSecretRef:
-              name: cloudflare-cluster-issuer-credentials
-              key: api-token
+            name: cloudflare-cluster-issuer-credentials
+            key: api-token

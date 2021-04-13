@@ -6,5 +6,5 @@ metadata:
 spec:
   commonName: '*.staging.nowca.st'
   dnsNames:
-    - '*.staging.nowca.st'
-    - 'staging.nowca.st'
+  - '*.staging.nowca.st'
+  - staging.nowca.st

@@ -27,7 +27,7 @@ spec:
     artifactRepository:
       gcs:
         bucket: st-nowca-staging-artifacts
-        keyFormat: "{{workflow.namespace}}/{{workflow.name}}/"
+        keyFormat: '{{workflow.namespace}}/{{workflow.name}}/'
         serviceAccountKeySecret:
           name: gcs-credentials
           key: cloud

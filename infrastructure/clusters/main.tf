@@ -4,6 +4,9 @@ terraform {
     kubectl = {
       source = "gavinbunney/kubectl"
     }
+    kubernetes = {
+      source = "hashicorp/kubernetes"
+    }
     github = {
       source = "integrations/github"
     }
@@ -14,6 +17,12 @@ terraform {
 provider "github" {
   owner = var.fluxcd_repository_owner
   token = var.github_token
+}
+
+provider "kubernetes" {
+  host                   = module.kubeconfig.endpoint
+  token                  = module.kubeconfig.token
+  cluster_ca_certificate = module.kubeconfig.cluster_ca_certificate
 }
 
 provider "kubectl" {
