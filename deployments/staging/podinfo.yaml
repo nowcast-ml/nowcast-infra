@@ -1,3 +1,4 @@
+---
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
 kind: Kustomization
 metadata:
@@ -7,10 +8,10 @@ spec:
   interval: 5m
   suspend: true
   dependsOn:
-  - name: crds
-  - name: sources
-  - name: istio
-  - name: gateways
+    - name: crds
+    - name: sources
+    - name: istio
+    - name: gateways
   sourceRef:
     kind: GitRepository
     name: flux-system

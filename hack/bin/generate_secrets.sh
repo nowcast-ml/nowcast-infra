@@ -59,7 +59,8 @@ for t in `find "${TARGET_PATH}" -name "*.tpl" -type f`; do
         continue
     fi
     echo -e "generating sealed-secret at \"${TARGET_FILEPATH}\" with scope \"${TARGET_SCOPE}\" signed by \"${TARGET_CERT}\""
-    echo -e "${TEMPLATE}" | kubeseal --name "${SEALED_SECRET_NAME}" --format yaml --cert "${GIT_ROOT}/${TARGET_CERT}" --scope "${TARGET_SCOPE}" > "${GIT_ROOT}/${TARGET_FILEPATH}"
+    echo -e "---" > "${GIT_ROOT}/${TARGET_FILEPATH}"
+    echo -e "${TEMPLATE}" | kubeseal --name "${SEALED_SECRET_NAME}" --format yaml --cert "${GIT_ROOT}/${TARGET_CERT}" --scope "${TARGET_SCOPE}" | yq e -P >> "${GIT_ROOT}/${TARGET_FILEPATH}"
     unset TARGET_CERT; unset TARKET_SCOPE; unset TARGET_FILEPATH; unset TEMPLATE
 done
 

@@ -1,3 +1,4 @@
+---
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
@@ -28,11 +29,11 @@ spec:
         nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
             nodeSelectorTerms:
-            - matchExpressions:
-              - key: node-pool-profile
-                operator: In
-                values:
-                - system
+              - matchExpressions:
+                  - key: node-pool-profile
+                    operator: In
+                    values:
+                      - system
         podAntiAffinity: hard
         resources:
           requests:
@@ -58,11 +59,11 @@ spec:
         nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
             nodeSelectorTerms:
-            - matchExpressions:
-              - key: node-pool-profile
-                operator: In
-                values:
-                - system
+              - matchExpressions:
+                  - key: node-pool-profile
+                    operator: In
+                    values:
+                      - system
         podAntiAffinity: hard
         resources:
           requests:

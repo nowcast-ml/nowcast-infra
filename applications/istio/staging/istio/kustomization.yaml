@@ -1,7 +1,8 @@
+---
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-- ../../base/istio
+  - ../../base/istio
 patchesStrategicMerge:
-- gitrelease.yaml
-- helmrelease.yaml
+  - gitrelease.yaml
+  - helmrelease.yaml

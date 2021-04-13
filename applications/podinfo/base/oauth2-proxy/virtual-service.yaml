@@ -1,3 +1,4 @@
+---
 apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
@@ -5,12 +6,12 @@ metadata:
   namespace: podinfo
 spec:
   hosts:
-  - 'oauth2.staging.nowca.st'
+    - 'oauth2.staging.nowca.st'
   gateways:
-  - 'istio-system/st-nowca-wildcard'
+    - 'istio-system/st-nowca-wildcard'
   http:
-  - route:
-    - destination:
-        host: oauth2-proxy.podinfo.svc.cluster.local
-        port:
-          number: 80
+    - route:
+        - destination:
+            host: oauth2-proxy.podinfo.svc.cluster.local
+            port:
+              number: 80

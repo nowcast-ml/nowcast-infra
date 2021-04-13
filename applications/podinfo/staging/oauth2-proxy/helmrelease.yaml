@@ -1,3 +1,4 @@
+---
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
@@ -10,5 +11,5 @@ spec:
       chart: oauth2-proxy
       version: 5.0.3
   valuesFrom:
-  - kind: Secret
-    name: oauth2-proxy-values
+    - kind: Secret
+      name: oauth2-proxy-values
