@@ -7,7 +7,7 @@ metadata:
 spec:
   workloadSelector:
     labels:
-      istio: ingressgateway
+      app: istio-ingressgateway
   configPatches:
     - applyTo: HTTP_FILTER
       match:
@@ -16,6 +16,8 @@ spec:
           filterChain:
             filter:
               name: envoy.filters.network.http_connection_manager
+              subFilter:
+                name: envoy.filters.http.jwt_authn
             sni: 'podinfo.staging.nowca.st'
       patch:
         operation: INSERT_AFTER
@@ -61,6 +63,6 @@ spec:
                     - prefix: x-auth-request
                     - prefix: x-forwarded
               server_uri:
-                cluster: outbound|80||oauth2-proxy.podinfo.svc.cluster.local
+                cluster: outbound|4180||oauth2-proxy.podinfo.svc.cluster.local
                 timeout: 10s
-                uri: http://oauth2-proxy.podinfo.svc.cluster.local:80
+                uri: http://oauth2-proxy.podinfo.svc.cluster.local:4180
