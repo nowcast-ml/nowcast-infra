@@ -4,6 +4,8 @@ metadata:
   name: st-nowca-wildcard
   namespace: istio-system
 spec:
+  selector:
+    app: istio-ingressgateway
   servers:
   - port:
       number: 80
@@ -12,6 +14,7 @@ spec:
     hosts:
     - '*.staging.nowca.st'
     - 'staging.nowca.st'
+    - 'podinfo.staging.nowca.st'
     tls:
       httpsRedirect: true
   - port:
@@ -21,6 +24,7 @@ spec:
     hosts:
     - '*.staging.nowca.st'
     - 'staging.nowca.st'
+    - 'podinfo.staging.nowca.st'
     tls:
       credentialName: st-nowca-wildcard-tls
       mode: SIMPLE
