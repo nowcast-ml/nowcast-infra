@@ -7,12 +7,18 @@ terraform {
     kubernetes = {
       source = "hashicorp/kubernetes"
     }
+    google = {
+      source = "hashicorp/google"
+    }
     github = {
       source = "integrations/github"
     }
   }
 }
 
+provider "google" {
+  project     = var.project_id
+}
 
 provider "github" {
   owner = var.fluxcd_repository_owner

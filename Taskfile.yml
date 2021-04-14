@@ -27,6 +27,9 @@ includes:
   artifacts:
     taskfile: .taskfiles/Taskfile_tf_generic.yml
     dir: ./infrastructure/artifacts
+  databases:
+    taskfile: .taskfiles/Taskfile_tf_generic.yml
+    dir: ./infrastructure/databases
   secrets:
     taskfile: .taskfiles/Taskfile_secrets.yml
     dir: .
