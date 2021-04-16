@@ -17,7 +17,7 @@
       "matchStrings": [
         "repo=(?<depName>.*?)\n *tag: \"*(?<currentValue>.*)\"*\n"
       ],
-      "datasourceTemplate": "github-tag"
+      "datasourceTemplate": "github-tags"
     }
   ]
 }
