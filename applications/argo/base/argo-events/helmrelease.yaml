@@ -18,3 +18,34 @@ spec:
   values:
     namespace: argo
     singleNamespace: true
+    serviceAccount: argo
+    sensorController:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: node-pool-profile
+                    operator: In
+                    values:
+                      - system
+    eventsourceController:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: node-pool-profile
+                    operator: In
+                    values:
+                      - system
+    eventbusController:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: node-pool-profile
+                    operator: In
+                    values:
+                      - system

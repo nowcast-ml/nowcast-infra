@@ -18,17 +18,42 @@ spec:
   values:
     singleNamespace: true
     installCRD: true
+
     workflow:
       serviceAccount:
-        create: true
+        create: false
+        name: argo-workflow
       rbac:
         create: true
+
     controller:
+      serviceAccount: argo
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: node-pool-profile
+                    operator: In
+                    values:
+                      - system
       metricsConfig:
         enabled: true
       telemetryConfig:
         enabled: true
       serviceMonitor:
         enabled: true
+
     server:
       enabled: true
+      createServiceAccount: true
+      serviceAccount: argo-server
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: node-pool-profile
+                    operator: In
+                    values:
+                      - system
