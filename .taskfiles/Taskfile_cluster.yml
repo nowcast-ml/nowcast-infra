@@ -45,3 +45,5 @@ tasks:
     desc: Use kubeconfig
     cmds:
       - terraform output -raw kubeconfig > ~/.kube/config
+    preconditions:
+      - terraform output -raw kubeconfig
