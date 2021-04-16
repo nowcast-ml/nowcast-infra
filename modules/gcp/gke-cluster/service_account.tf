@@ -26,6 +26,6 @@ resource "google_project_iam_member" "cluster_service_account-gcr" {
 resource "google_project_iam_member" "cluster_service_account-artifact-registry" {
   count   = var.create_service_account ? 1 : 0
   project = var.project_id
-  role     = "roles/artifactregistry.reader"
+  role    = "roles/artifactregistry.reader"
   member  = "serviceAccount:${google_service_account.cluster_service_account[0].email}"
 }

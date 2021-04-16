@@ -49,10 +49,10 @@ resource "kubectl_manifest" "flux_namespace" {
     "annotations",
   ]
   yaml_body = yamlencode({
-    "apiVersion": "v1",
-    "kind": "Namespace",
-    "metadata": {
-      "name": var.namespace
+    "apiVersion" : "v1",
+    "kind" : "Namespace",
+    "metadata" : {
+      "name" : var.namespace
     }
   })
 }

@@ -8,8 +8,8 @@ terraform {
 }
 
 locals {
-  bucket_name          = "${var.prefix}-${var.name}"
-  role_name            = replace(local.bucket_name, "-", "_")
+  bucket_name = "${var.prefix}-${var.name}"
+  role_name   = replace(local.bucket_name, "-", "_")
 }
 
 resource "google_project_iam_custom_role" "role" {

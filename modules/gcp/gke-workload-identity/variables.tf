@@ -1,17 +1,17 @@
 variable "project_id" {
-  type        = string
+  type = string
 }
 
 variable "prefix" {
-  type        = string
+  type = string
 }
 
 variable "name" {
-  type        = string
+  type = string
 }
 
 variable "namespace" {
-  type        = string
+  type = string
 }
 
 variable "automount_service_account_token" {
@@ -21,11 +21,11 @@ variable "automount_service_account_token" {
 }
 
 variable "roles" {
-  type        = list(string)
-  default     = []
+  type    = list(string)
+  default = []
 }
 
 variable "create_namespace" {
-  type = bool
+  type    = bool
   default = false
 }

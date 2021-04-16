@@ -69,6 +69,6 @@ variable "username" {
 }
 
 variable "password" {
-  type = string
+  type    = string
   default = ""
 }

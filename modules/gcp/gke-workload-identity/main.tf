@@ -1,6 +1,6 @@
 
 locals {
-  name = "${var.prefix}-${var.name}"
+  name    = "${var.prefix}-${var.name}"
   sa_name = "serviceAccount:${var.project_id}.svc.id.goog[${var.namespace}/${var.name}]"
 }
 
@@ -40,8 +40,8 @@ resource "kubernetes_service_account" "k8s_service_account" {
 
 resource "google_service_account_iam_member" "membership" {
   service_account_id = google_service_account.gcp_service_account.name
-  role = "roles/iam.workloadIdentityUser"
-  member = local.sa_name
+  role               = "roles/iam.workloadIdentityUser"
+  member             = local.sa_name
 
   depends_on = [kubernetes_service_account.k8s_service_account, google_service_account.gcp_service_account]
 }
@@ -50,6 +50,6 @@ resource "google_project_iam_member" "bingings" {
   for_each = toset(var.roles)
 
   project = var.project_id
-  role = each.value
-  member = "serviceAccount:${google_service_account.gcp_service_account.email}"
+  role    = each.value
+  member  = "serviceAccount:${google_service_account.gcp_service_account.email}"
 }
