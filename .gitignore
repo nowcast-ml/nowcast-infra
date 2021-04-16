@@ -26,3 +26,5 @@ modules/**/*.lock.hcl
 infrastructue/*.key
 scripts/*.key
 scripts/*.yaml
+
+*.log
