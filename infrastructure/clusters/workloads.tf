@@ -2,7 +2,7 @@
 module "workloads" {
   source = "../../modules/gcp/gke-workload-identity/"
 
-  for_each = { for w in var.workloads : "${w.namespace}-${var.prefix}-${w.name}" => w }
+  for_each = { for w in var.workloads : "${var.prefix}-${w.namespace}-${w.name}" => w }
 
   project_id                      = var.project_id
   prefix                          = var.prefix

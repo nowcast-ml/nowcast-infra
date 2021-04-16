@@ -1,9 +1,8 @@
 
-output "service_account" {
-  value = module.service_account.service_account.name
+output "bucket_name" {
+  value = module.bucket.name
 }
 
-output "key" {
-  sensitive = true
-  value     = module.service_account.key.private_key
+output "role_name" {
+  value = google_project_iam_custom_role.role.name
 }

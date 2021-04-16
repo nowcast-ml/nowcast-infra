@@ -10,18 +10,18 @@ resource "google_service_account" "gcp_service_account" {
   display_name = substr("GCP sa bound to k8s sa ${var.namespace}/${var.name}", 0, 100)
 }
 
-resource "kubernetes_namespace" "sa_namespace" {
+resource "kubectl_manifest" "sa_namespace" {
   count = var.create_namespace ? 1 : 0
-  metadata {
-    name = var.namespace
-  }
-
-  lifecycle {
-    ignore_changes = [
-      metadata[0].labels,
-      metadata[0].annotations,
-    ]
-  }
+  ignore_fields = [
+    "labels",
+    "annotations",
+  ]
+  yaml_body = <<YAML
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ${var.namespace}
+YAML
 }
 
 resource "kubernetes_service_account" "k8s_service_account" {
@@ -35,7 +35,7 @@ resource "kubernetes_service_account" "k8s_service_account" {
     }
   }
 
-  depends_on = [kubernetes_namespace.sa_namespace]
+  depends_on = [kubectl_manifest.sa_namespace]
 }
 
 resource "google_service_account_iam_member" "membership" {
