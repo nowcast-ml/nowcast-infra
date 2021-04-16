@@ -28,19 +28,21 @@ spec:
       affinity:
         nodeAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
-            nodeSelectorTerms:
-              - matchExpressions:
-                  - key: node-pool-profile
-                    operator: In
-                    values:
-                      - system
+            - weight: 1
+              preference:
+                - matchExpressions:
+                    - key: node-pool-profile
+                      operator: In
+                      values:
+                        - system
     cainjector:
       affinity:
         nodeAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
-            nodeSelectorTerms:
-              - matchExpressions:
-                  - key: node-pool-profile
-                    operator: In
-                    values:
-                      - system
+            - weight: 1
+              preference:
+                - matchExpressions:
+                    - key: node-pool-profile
+                      operator: In
+                      values:
+                        - system
