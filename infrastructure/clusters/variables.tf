@@ -72,3 +72,16 @@ variable "fluxcd_repository_path" {
 variable "secrets_dir" {
   type = string
 }
+
+variable "prefix" {
+  type = string
+}
+
+variable "workloads" {
+  type    = list(object({ name = string, namespace = string, roles = list(string) }))
+  default = []
+}
+
+variable "automount_service_account_token" {
+  type = bool
+}

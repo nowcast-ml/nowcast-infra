@@ -16,8 +16,12 @@ terraform {
   }
 }
 
+locals {
+  name = "${var.prefix}-${var.name}"
+}
+
 provider "google" {
-  project     = var.project_id
+  project = var.project_id
 }
 
 provider "github" {
@@ -45,7 +49,7 @@ module "cluster" {
   source = "../../modules/gcp/gke-cluster/"
 
   project_id = var.project_id
-  name       = var.name
+  name       = local.name
 
   zonal = true
   zones = var.zones
@@ -90,7 +94,7 @@ module "fluxcd" {
 
   fluxcd_version = var.fluxcd_version
 
-  name_prefix = var.name
+  name_prefix = local.name
 
   repository_owner = var.fluxcd_repository_owner
   repository_name  = var.fluxcd_repository_name

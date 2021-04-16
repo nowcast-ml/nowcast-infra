@@ -31,6 +31,11 @@ tasks:
       - terraform refresh -var-file defaults.{{.TF_WORKSPACE}}.tfvars
       - task: use-kubeconfig
 
+  plan:
+    desc: Plan cluster infrastructure
+    cmds:
+      - terraform plan -var-file defaults.{{.TF_WORKSPACE}}.tfvars
+
   reload-kubeconfig:
     desc: Reload kubeconfig
     cmds:

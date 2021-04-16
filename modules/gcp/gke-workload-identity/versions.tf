@@ -6,9 +6,9 @@ terraform {
       source  = "hashicorp/google"
       version = "3.64.0"
     }
-    cloudflare = {
-      source  = "cloudflare/cloudflare"
-      version = "2.19.2"
+    kubernetes = {
+      source  = "hashicorp/kubernetes"
+      version = ">= 2.0.2"
     }
   }
 }

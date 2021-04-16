@@ -24,6 +24,11 @@ tasks:
       - terraform destroy -var-file defaults.{{.TF_WORKSPACE}}.tfvars
 
   refresh:
-    desc: Refresh terraform state
+    desc: Refresh infrastructure state
     cmds:
       - terraform refresh -var-file defaults.{{.TF_WORKSPACE}}.tfvars
+
+  plan:
+    desc: Plan infrastructure
+    cmds:
+      - terraform plan -var-file defaults.{{.TF_WORKSPACE}}.tfvars

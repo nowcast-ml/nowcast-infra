@@ -38,10 +38,10 @@ tasks:
   buildup:
     desc: "Bring up infra"
     cmds:
-      - task: disks:apply
+      # - task: disks:apply
       - task: clusters:apply
   teardown:
     desc: "Tear down infra"
     cmds:
       - task: clusters:destroy
-      - task: disks:destroy
+      # - task: disks:destroy
