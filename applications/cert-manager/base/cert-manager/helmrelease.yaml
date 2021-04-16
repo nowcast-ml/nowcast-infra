@@ -14,3 +14,33 @@ spec:
         namespace: flux-system
   interval: 5m
   timeout: 30m
+  values:
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+            - matchExpressions:
+                - key: node-pool-profile
+                  operator: In
+                  values:
+                    - system
+    webhook:
+      affinity:
+        nodeAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: node-pool-profile
+                    operator: In
+                    values:
+                      - system
+    cainjector:
+      affinity:
+        nodeAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: node-pool-profile
+                    operator: In
+                    values:
+                      - system
