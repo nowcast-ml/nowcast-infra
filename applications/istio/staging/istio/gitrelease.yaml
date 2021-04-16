@@ -7,4 +7,5 @@ metadata:
 spec:
   url: https://github.com/istio/istio
   ref:
+    # renovate: repoHandle=istio/istio
     tag: 1.9.2
