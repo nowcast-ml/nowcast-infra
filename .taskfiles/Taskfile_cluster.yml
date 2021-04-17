@@ -12,7 +12,7 @@ tasks:
     desc: Plan and apply cluster infrasturcture
     cmds:
       - task: init
-      - terraform plan -var-file defaults.{{.TF_WORKSPACE}}.tfvars
+      - task: plan
       - terraform apply -var-file defaults.{{.TF_WORKSPACE}}.tfvars
       - task: use-kubeconfig
       - git pull
