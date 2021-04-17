@@ -24,8 +24,3 @@ variable "roles" {
   type    = list(string)
   default = []
 }
-
-variable "create_namespace" {
-  type    = bool
-  default = false
-}

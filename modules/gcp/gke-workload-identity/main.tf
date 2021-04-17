@@ -10,40 +10,27 @@ resource "google_service_account" "gcp_service_account" {
   display_name = substr("GCP sa bound to k8s sa ${var.namespace}/${var.name}", 0, 100)
 }
 
-resource "kubectl_manifest" "sa_namespace" {
-  count = var.create_namespace ? 1 : 0
-  ignore_fields = [
-    "labels",
-    "annotations",
-  ]
-  yaml_body = <<YAML
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: ${var.namespace}
-YAML
-}
+# resource "kubernetes_service_account" "k8s_service_account" {
+#   automount_service_account_token = var.automount_service_account_token
 
-resource "kubernetes_service_account" "k8s_service_account" {
-  automount_service_account_token = var.automount_service_account_token
-
-  metadata {
-    name      = var.name
-    namespace = var.namespace
-    annotations = {
-      "iam.gke.io/gcp-service-account" = google_service_account.gcp_service_account.email
-    }
-  }
-
-  depends_on = [kubectl_manifest.sa_namespace]
-}
+#   metadata {
+#     name      = var.name
+#     namespace = var.namespace
+#     annotations = {
+#       "iam.gke.io/gcp-service-account" = google_service_account.gcp_service_account.email
+#     }
+#   }
+# }
 
 resource "google_service_account_iam_member" "membership" {
   service_account_id = google_service_account.gcp_service_account.name
   role               = "roles/iam.workloadIdentityUser"
   member             = local.sa_name
 
-  depends_on = [kubernetes_service_account.k8s_service_account, google_service_account.gcp_service_account]
+  depends_on = [
+    # kubernetes_service_account.k8s_service_account,
+    google_service_account.gcp_service_account
+  ]
 }
 
 resource "google_project_iam_member" "bingings" {
