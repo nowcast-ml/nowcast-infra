@@ -21,7 +21,7 @@ spec:
 
     workflow:
       serviceAccount:
-        create: false
+        create: true
         name: argo-workflow
       rbac:
         create: true
