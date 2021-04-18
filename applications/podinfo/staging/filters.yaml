@@ -66,6 +66,17 @@ spec:
                 cluster: outbound|4180||oauth2-proxy.podinfo.svc.cluster.local
                 timeout: 10s
                 uri: http://oauth2-proxy.podinfo.svc.cluster.local:4180
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: EnvoyFilter
+metadata:
+  name: podinfo-oauth2-proxy-filter
+  namespace: istio-system
+spec:
+  workloadSelector:
+    labels:
+      app: istio-ingressgateway
+  configPatches:
     - applyTo: HTTP_FILTER
       match:
         context: GATEWAY
