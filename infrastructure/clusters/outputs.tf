@@ -12,6 +12,6 @@ output "kubeconfig" {
   value     = module.kubeconfig.kubeconfig
 }
 
-output "service_accounts" {
+output "workload_identity_service_accounts" {
   value = local.service_accounts_emails
 }
