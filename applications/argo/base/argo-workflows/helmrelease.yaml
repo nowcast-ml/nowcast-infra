@@ -27,7 +27,7 @@ spec:
         create: true
 
     controller:
-      serviceAccount: argo
+      serviceAccount: argo-controller
       affinity:
         nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:

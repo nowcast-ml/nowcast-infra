@@ -18,7 +18,7 @@ spec:
   values:
     namespace: argo
     singleNamespace: true
-    serviceAccount: argo
+    serviceAccount: argo-events
     sensorController:
       affinity:
         nodeAffinity:

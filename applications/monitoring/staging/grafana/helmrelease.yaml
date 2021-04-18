@@ -14,4 +14,4 @@ spec:
       configmap.reloader.stakater.com/reload: "grafana-credentials"
   valuesFrom:
     - kind: Secret
-      name: grafana-credentials
+      name: grafana-login
