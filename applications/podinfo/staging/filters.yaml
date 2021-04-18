@@ -2,7 +2,7 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: EnvoyFilter
 metadata:
-  name: podinfo-oauth2-proxy-filter
+  name: podinfo-oauth2-proxy-filter-podinfo
   namespace: istio-system
 spec:
   workloadSelector:
@@ -70,7 +70,7 @@ spec:
 apiVersion: networking.istio.io/v1alpha3
 kind: EnvoyFilter
 metadata:
-  name: podinfo-oauth2-proxy-filter
+  name: podinfo-oauth2-proxy-filter-test
   namespace: istio-system
 spec:
   workloadSelector:
