@@ -9,9 +9,7 @@ spec:
   suspend: false
   dependsOn:
     - name: flux-alerts
-    - name: crds
     - name: istio
-    - name: cert-manager
     - name: certificates
   sourceRef:
     kind: GitRepository

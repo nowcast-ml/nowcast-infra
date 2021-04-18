@@ -9,7 +9,6 @@ spec:
   suspend: true
   dependsOn:
     - name: flux-alerts
-    - name: crds
   sourceRef:
     kind: GitRepository
     name: flux-system
