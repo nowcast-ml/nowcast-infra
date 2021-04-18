@@ -19,9 +19,6 @@ spec:
         volumeMounts:
           - mountPath: /target
             name: plugins
-    credentials:
-      useSecret: true
-      existingSecret: velero-gcs-credentials
     configuration:
       provider: gcp
       backupStorageLocation:
