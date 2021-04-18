@@ -23,7 +23,7 @@ spec:
   healthChecks:
     - apiVersion: v1
       kind: Secret
-      name: cloudflare-cluster-issuer-credentials
+      name: cloudflare-token
       namespace: cert-manager
     - apiVersion: cert-manager.io/v1
       kind: ClusterIssuer
