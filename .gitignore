@@ -19,8 +19,8 @@ terraform.rc
 modules/**/.terraform*
 modules/**/*.lock.hcl
 
-# Kubernetes
-.kubeconfig.yaml
+# Kubernete
+.kubeconfig
 
 # Secrets
 infrastructue/*.key

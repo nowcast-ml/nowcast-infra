@@ -50,6 +50,6 @@ tasks:
   use-kubeconfig:
     desc: Use kubeconfig
     cmds:
-      - terraform output -raw kubeconfig > ~/.kube/config
+      - terraform output -raw kubeconfig > .kubeconfig
     preconditions:
       - terraform output -raw kubeconfig
