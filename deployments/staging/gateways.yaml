@@ -12,7 +12,7 @@ spec:
     - name: crds
     - name: istio
     - name: cert-manager
-    - name: ca
+    - name: certificates
   sourceRef:
     kind: GitRepository
     name: flux-system
