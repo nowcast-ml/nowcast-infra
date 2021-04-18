@@ -83,10 +83,10 @@ module "kubeconfig" {
   depends_on = [module.cluster]
 }
 
-module "inject_manifests" {
+module "inject_secrets" {
   source = "../../modules/k8s/inject-manifest-pattern/"
 
-  filepath_pattern = "${path.module}/../../secrets/cluster/${var.secrets_dir}/sealed-secrets-key.yaml"
+  filepath_pattern = "${path.module}/../../secrets/cluster/${var.secrets_path}/inject-*.yaml"
 }
 
 module "fluxcd" {

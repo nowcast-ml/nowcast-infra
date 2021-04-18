@@ -27,7 +27,7 @@ tasks:
   refresh:
     desc: Refresh terraform state
     cmds:
-      - task: reload-kubeconfig
+      - task: fetch-kubeconfig
       - terraform refresh -var-file defaults.{{.TF_WORKSPACE}}.tfvars
       - task: use-kubeconfig
 
@@ -37,6 +37,12 @@ tasks:
       - terraform plan -var-file defaults.{{.TF_WORKSPACE}}.tfvars
 
   reload-kubeconfig:
+    desc: Reload kubeconfig
+    cmds:
+      - task: fetch-kubeconfig
+      - task: use-kubeconfig
+
+  fetch-kubeconfig:
     desc: Reload kubeconfig
     cmds:
       - terraform refresh -var-file defaults.{{.TF_WORKSPACE}}.tfvars -target 'module.kubeconfig'

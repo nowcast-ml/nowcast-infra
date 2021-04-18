@@ -69,7 +69,7 @@ variable "fluxcd_repository_path" {
   type = string
 }
 
-variable "secrets_dir" {
+variable "secrets_path" {
   type = string
 }
 

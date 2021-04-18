@@ -53,6 +53,9 @@ resource "kubectl_manifest" "flux_namespace" {
     "kind" : "Namespace",
     "metadata" : {
       "name" : var.namespace
+      "annotations": {
+        "istio-injection": "disabled"
+      }
     }
   })
 }

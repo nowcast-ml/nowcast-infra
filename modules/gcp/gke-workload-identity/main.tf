@@ -33,7 +33,7 @@ resource "google_service_account_iam_member" "membership" {
   ]
 }
 
-resource "google_project_iam_member" "bingings" {
+resource "google_project_iam_member" "bindings" {
   for_each = toset(var.roles)
 
   project = var.project_id
