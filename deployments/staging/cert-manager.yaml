@@ -10,7 +10,6 @@ spec:
   dependsOn:
     - name: flux-alerts
     - name: crds
-    - name: istio
     - name: sources
     - name: secrets
   sourceRef:
