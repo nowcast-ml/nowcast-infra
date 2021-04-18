@@ -7,6 +7,7 @@ metadata:
 spec:
   hosts:
     - 'podinfo.staging.nowca.st'
+    - 'test.staging.nowca.st'
   gateways:
     - 'istio-system/st-nowca-wildcard'
   http:
@@ -25,10 +26,9 @@ spec:
   selector:
     matchLabels:
       app: istio-ingressgateway
-  # TODO: Change to GitHub details.
   jwtRules:
-  - issuer: https://accounts.google.com
-    jwksUri: https://www.googleapis.com/oauth2/v3/certs
+    - issuer: https://accounts.google.com
+      jwksUri: https://www.googleapis.com/oauth2/v3/certs
 ---
 apiVersion: security.istio.io/v1beta1
 kind: AuthorizationPolicy
@@ -41,6 +41,6 @@ spec:
     matchLabels:
       app: istio-ingressgateway
   rules:
-  - from:
-    - source:
-        requestPrincipals: ["*"]
+    - from:
+        - source:
+            requestPrincipals: ["*"]
