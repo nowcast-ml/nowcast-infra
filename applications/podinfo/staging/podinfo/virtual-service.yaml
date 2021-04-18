@@ -7,7 +7,7 @@ metadata:
 spec:
   hosts:
     - 'podinfo.staging.nowca.st'
-    - 'test.staging.nowca.st'
+    - 'podinfo2.staging.nowca.st'
   gateways:
     - 'istio-system/st-nowca-wildcard'
   http:

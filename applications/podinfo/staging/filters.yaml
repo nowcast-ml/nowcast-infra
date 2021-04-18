@@ -85,8 +85,8 @@ spec:
             filter:
               name: envoy.filters.network.http_connection_manager
               subFilter:
-                name: envoy.filters.http.jwt_authn
-            sni: 'test.staging.nowca.st'
+                name: podinfo2.filters.http.jwt_authn
+            sni: 'podinfo2.staging.nowca.st'
       patch:
         operation: INSERT_BEFORE
         value:
