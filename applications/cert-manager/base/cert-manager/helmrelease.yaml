@@ -30,19 +30,19 @@ spec:
           preferredDuringSchedulingIgnoredDuringExecution:
             - weight: 1
               preference:
-                - matchExpressions:
-                    - key: node-pool-profile
-                      operator: In
-                      values:
-                        - system
+                matchExpressions:
+                  - key: node-pool-profile
+                    operator: In
+                    values:
+                      - system
     cainjector:
       affinity:
         nodeAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
             - weight: 1
               preference:
-                - matchExpressions:
-                    - key: node-pool-profile
-                      operator: In
-                      values:
-                        - system
+                matchExpressions:
+                  - key: node-pool-profile
+                    operator: In
+                    values:
+                      - system
