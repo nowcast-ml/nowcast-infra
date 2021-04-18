@@ -2,7 +2,7 @@
 apiVersion: notification.toolkit.fluxcd.io/v1beta1
 kind: Alert
 metadata:
-  name: gotk-general
+  name: flux-general
   namespace: flux-system
 spec:
   suspend: false
@@ -18,7 +18,7 @@ spec:
 apiVersion: notification.toolkit.fluxcd.io/v1beta1
 kind: Alert
 metadata:
-  name: gotk-helmrepositories
+  name: flux-helmrepositories
   namespace: flux-system
 spec:
   suspend: false
@@ -32,7 +32,7 @@ spec:
 apiVersion: notification.toolkit.fluxcd.io/v1beta1
 kind: Alert
 metadata:
-  name: gotk-helmreleases
+  name: flux-helmreleases
   namespace: flux-system
 spec:
   suspend: false
