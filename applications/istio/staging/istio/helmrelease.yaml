@@ -9,6 +9,14 @@ spec:
     gateways:
       istio-ingressgateway:
         loadBalancerIP: "34.91.159.136"
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: istiod
+  namespace: istio-system
+spec:
+  values:
     meshConfig:
       extensionProviders:
         - name: "oauth2-proxy"
