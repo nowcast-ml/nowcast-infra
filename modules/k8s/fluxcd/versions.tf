@@ -16,7 +16,7 @@ terraform {
     }
     github = {
       source  = "integrations/github"
-      version = "4.8.0"
+      version = "4.9.2"
     }
     tls = {
       source  = "hashicorp/tls"
