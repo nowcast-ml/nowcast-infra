@@ -14,7 +14,7 @@ spec:
     - name: secrets
     - name: monitoring
     - name: istio
-    - name: gateway
+    - name: gateways
   sourceRef:
     kind: GitRepository
     name: flux-system
