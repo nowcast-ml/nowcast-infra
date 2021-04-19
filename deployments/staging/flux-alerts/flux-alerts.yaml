@@ -8,24 +8,12 @@ spec:
   suspend: false
   providerRef:
     name: slack
-  eventSeverity: info
+  eventSeverity: error
   eventSources:
     - kind: GitRepository
       name: '*'
     - kind: Kustomization
       name: '*'
----
-apiVersion: notification.toolkit.fluxcd.io/v1beta1
-kind: Alert
-metadata:
-  name: flux-helmrepositories
-  namespace: flux-system
-spec:
-  suspend: false
-  providerRef:
-    name: slack
-  eventSeverity: error
-  eventSources:
     - kind: HelmRepository
       name: '*'
 ---
@@ -54,4 +42,10 @@ spec:
       name: '*'
     - kind: HelmRelease
       namespace: 'velero'
+      name: '*'
+    - kind: HelmRelease
+      namespace: 'tracing-system'
+      name: '*'
+    - kind: HelmRelease
+      namespace: 'cert-manager'
       name: '*'
