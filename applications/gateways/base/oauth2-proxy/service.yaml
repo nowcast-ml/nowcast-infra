@@ -14,4 +14,3 @@ spec:
       name: http
   selector:
     app: oauth2-proxy
-    release: oauth2-proxy
