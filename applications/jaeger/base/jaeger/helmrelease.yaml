@@ -1,0 +1,28 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: jaeger
+  namespace: tracing-system
+spec:
+  releaseName: jaeger
+  chart:
+    spec:
+      # renovate: registryUrl=https://jaegertracing.github.io/helm-charts
+      chart: jaeger-operator
+      sourceRef:
+        kind: HelmRepository
+        name: jaegertracing
+        namespace: flux-system
+  interval: 5m
+  timeout: 30m
+  values:
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+            - matchExpressions:
+                - key: node-pool-profile
+                  operator: In
+                  values:
+                    - system

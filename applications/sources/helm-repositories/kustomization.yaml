@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
   - argo.yaml
   - bitnami.yaml
+  - jaegertracing.yaml
   - descheduler.yaml
   - grafana.yaml
   - jetstack.yaml
