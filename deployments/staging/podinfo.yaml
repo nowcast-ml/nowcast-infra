@@ -10,8 +10,9 @@ spec:
   dependsOn:
     - name: flux-alerts
     - name: crds
-    - name: istio
     - name: sources
+    - name: monitoring
+    - name: istio
     - name: gateways
   sourceRef:
     kind: GitRepository

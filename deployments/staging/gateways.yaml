@@ -9,6 +9,7 @@ spec:
   suspend: false
   dependsOn:
     - name: flux-alerts
+    - name: monitoring
     - name: istio
     - name: certificates
   sourceRef:

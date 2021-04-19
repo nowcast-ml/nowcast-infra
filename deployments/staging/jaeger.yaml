@@ -10,6 +10,8 @@ spec:
   dependsOn:
     - name: flux-alerts
     - name: crds
+    - name: sources
+    - name: monitoring
   sourceRef:
     kind: GitRepository
     name: flux-system

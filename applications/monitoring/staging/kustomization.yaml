@@ -6,5 +6,4 @@ resources:
   - ../base/servicemonitors
   - prometheus
   - loki
-  - grafana
   - healthcheck

@@ -9,8 +9,8 @@ spec:
   suspend: false
   dependsOn:
     - name: flux-alerts
-    - name: sources
     - name: secrets
+    - name: monitoring
     - name: cert-manager
   sourceRef:
     kind: GitRepository
