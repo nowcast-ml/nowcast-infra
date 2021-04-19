@@ -79,13 +79,18 @@ spec:
               accessModes: [ReadWriteOnce]
               resources:
                 requests:
-                  storage: 10Gi
+                  storage: 5Gi
     grafana:
       enabled: false
     kubeApiServer:
       enabled: true
     kubelet:
       enabled: true
+      metricRelabelings:
+        - action: replace
+          sourceLabels:
+            - node
+          targetLabel: instance
     kubeControllerManager:
       enabled: true
     coreDns:
