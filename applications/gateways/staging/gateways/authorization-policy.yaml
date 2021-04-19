@@ -12,7 +12,10 @@ spec:
   provider:
     name: "oauth2-proxy"
   rules:
-    - to:
+    - from:
+        - source:
+            requestPrincipals: ["*"]
+      to:
         - operation:
             hosts:
               - podinfo.staging.nowca.st
