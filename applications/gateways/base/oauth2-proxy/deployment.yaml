@@ -14,6 +14,8 @@ spec:
     metadata:
       labels:
         app: oauth2-proxy
+      annotations:
+        configmap.reloader.stakater.com/reload: "oauth2-proxy"
     spec:
       serviceAccountName: oauth2-proxy
       containers:
