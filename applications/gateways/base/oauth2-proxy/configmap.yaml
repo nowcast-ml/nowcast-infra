@@ -1,0 +1,26 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: oauth2-proxy
+  labels:
+    app: oauth2-proxy
+data:
+  oauth2_proxy.cfg: |-
+    provider = "google"
+    oidc_issuer_url = "https://accounts.google.com"
+    email_domains = [ "*" ]
+    whitelist_domains = [ ".staging.nowca.st" ]
+    cookie_secure = true
+    cookie_samesite = "lax"
+    cookie_refresh = "1h"
+    cookie_expire = "5h"
+    cookie_domains = [ ".staging.nowca.st"]
+    set_authorization_header = true
+    set_xauthrequest = true
+    reverse_proxy = true
+    pass_access_token = true
+    pass_authorization_header = true
+    pass_host_header = false
+    skip_provider_button = true
+    upstreams = [ "static://200" ]

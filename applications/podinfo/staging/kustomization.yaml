@@ -4,5 +4,5 @@ kind: Kustomization
 resources:
   - ../base/namespace
   - podinfo
-  - oauth2-proxy
+  # - oauth2-proxy
   - filters.yaml
