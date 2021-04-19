@@ -26,3 +26,7 @@ spec:
       kind: Gateway
       name: st-nowca-wildcard
       namespace: istio-system
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: oauth2-proxy
+      namespace: oauth2-proxy
