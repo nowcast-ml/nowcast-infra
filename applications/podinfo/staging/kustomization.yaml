@@ -5,4 +5,4 @@ resources:
   - ../base/namespace
   - podinfo
   # - oauth2-proxy
-  - filters.yaml
+  # - filters.yaml

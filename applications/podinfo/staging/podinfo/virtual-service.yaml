@@ -15,31 +15,31 @@ spec:
             host: podinfo.podinfo.svc.cluster.local
             port:
               number: 9898
----
-apiVersion: security.istio.io/v1beta1
-kind: RequestAuthentication
-metadata:
-  name: podinfo
-  namespace: istio-system
-spec:
-  selector:
-    matchLabels:
-      app: istio-ingressgateway
-  jwtRules:
-    - issuer: https://accounts.google.com
-      jwksUri: https://www.googleapis.com/oauth2/v3/certs
----
-apiVersion: security.istio.io/v1beta1
-kind: AuthorizationPolicy
-metadata:
-  name: podinfo
-  namespace: istio-system
-spec:
-  action: ALLOW
-  selector:
-    matchLabels:
-      app: istio-ingressgateway
-  rules:
-    - from:
-        - source:
-            requestPrincipals: ["*"]
+# ---
+# apiVersion: security.istio.io/v1beta1
+# kind: RequestAuthentication
+# metadata:
+#   name: podinfo
+#   namespace: istio-system
+# spec:
+#   selector:
+#     matchLabels:
+#       app: istio-ingressgateway
+#   jwtRules:
+#     - issuer: https://accounts.google.com
+#       jwksUri: https://www.googleapis.com/oauth2/v3/certs
+# ---
+# apiVersion: security.istio.io/v1beta1
+# kind: AuthorizationPolicy
+# metadata:
+#   name: podinfo
+#   namespace: istio-system
+# spec:
+#   action: ALLOW
+#   selector:
+#     matchLabels:
+#       app: istio-ingressgateway
+#   rules:
+#     - from:
+#         - source:
+#             requestPrincipals: ["*"]
