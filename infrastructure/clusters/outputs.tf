@@ -13,5 +13,6 @@ output "kubeconfig" {
 }
 
 output "workload_identity_service_accounts" {
+  sensitive = true
   value = local.service_accounts_emails
 }
