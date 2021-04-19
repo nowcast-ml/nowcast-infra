@@ -25,7 +25,7 @@ spec:
     deploymentStrategy:
       type: Recreate
     podAnnotations:
-      configmap.reloader.stakater.com/reload: "grafana"
+      reloader.stakater.com/auto: "true"
     env:
       GF_EXPLORE_ENABLED: true
       GF_PANELS_DISABLE_SANITIZE_HTML: true
