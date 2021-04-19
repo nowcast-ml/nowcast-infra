@@ -23,4 +23,5 @@ data:
     pass_authorization_header = true
     pass_host_header = false
     skip_provider_button = true
+    silence_ping_logging = true
     upstreams = [ "static://200" ]
