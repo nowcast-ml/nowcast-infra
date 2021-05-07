@@ -39,7 +39,7 @@ repos:
           - ".github/yamllint.config.yaml"
         exclude: deployments/.*/flux-system/
   - repo: git://github.com/antonbabenko/pre-commit-terraform
-    rev: v1.45.0
+    rev: v1.50.0
     hooks:
       - id: terraform_fmt
       - id: terraform_validate
