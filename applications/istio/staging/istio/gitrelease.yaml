@@ -8,4 +8,4 @@ spec:
   url: https://github.com/istio/istio
   ref:
     # renovate: repoHandle=istio/istio
-    tag: 1.9.5
+    tag: 1.10.0
