@@ -8,7 +8,7 @@ spec:
     spec:
       # renovate: registryUrl=https://vmware-tanzu.github.io/helm-charts
       chart: velero
-      version: 2.21.1
+      version: 2.23.3
   values:
     rbac:
       create: true
