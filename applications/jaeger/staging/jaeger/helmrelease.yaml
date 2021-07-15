@@ -9,4 +9,4 @@ spec:
     spec:
       # renovate: registryUrl=https://jaegertracing.github.io/helm-charts
       chart: jaeger-operator
-      version: 2.21.2
+      version: 2.23.0
